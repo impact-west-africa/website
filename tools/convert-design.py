@@ -29,10 +29,14 @@ CONTACT_EMAIL = "info@impactwestafrica.org"
 SIGNUP_URL = "https://impact-west-africa.epistle.org/subscribe"
 
 # The design shipped a "#give" placeholder for the donate button; giving now
-# happens in an embedded DonorBox form further down the page.
+# happens in a "Give online" button further down the page, which opens Planning
+# Center's Church Center giving form in a modal.
 GIVE_URL = "#donate"
 FORMSPREE_URL = "https://formspree.io/f/mnpqloqd"
-DONORBOX_CAMPAIGN = "impact-west-africa"
+CHURCH_CENTER_URL = "https://impact-west-africa-inc-544195.churchcenter.com/giving"
+# The query param is what tells modal/v1 to intercept the click. Without
+# JavaScript the link is still a plain link to the same giving page.
+CHURCH_CENTER_MODAL = CHURCH_CENTER_URL + "?open-in-church-center-modal=true"
 
 PAGES = [
     dict(src="Home.dc.html", out="index.html", url="/",
@@ -444,8 +448,12 @@ FOOT = """</body>
 CONTACT_JS = """<script src="/assets/contact.js" defer></script>
 """
 
-DONORBOX_HEAD = ('<script type="module" src="https://donorbox.org/widgets.js" '
-                 'async></script>\n')
+CHURCH_CENTER_HEAD = ('<script src="https://js.churchcenter.com/modal/v1" '
+                      'defer></script>\n')
+
+# Hover state for the injected "Give online" buttons. The generated .hN rules
+# only cover elements that came from the design, so this one is added by hand.
+GIVE_BTN_CSS = ".give-btn:hover{background:#8f4623!important}"
 
 DONATE_SECTION = """
   <section id="donate" style="background:#ecd9b9;border-top:1px solid rgba(43,43,43,0.1)">
@@ -456,11 +464,9 @@ DONATE_SECTION = """
       </div>
       <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(22px,2.4vw,28px);line-height:1.5;font-weight:300;max-width:720px;margin:22px 0 0">{heading}</p>
       {lead}
-      <div style="margin-top:clamp(32px,4vw,48px);max-width:760px;background:#ffffff;padding:clamp(10px,1.6vw,18px)">
-        <dbox-widget campaign="{campaign}" type="donation_form" enable-auto-scroll="true"></dbox-widget>
-        <noscript>
-          <p style="font-size:15px;line-height:1.8;margin:24px 20px;color:rgba(43,43,43,0.8)">The giving form needs JavaScript. You can also <a href="https://donorbox.org/{campaign}" style="border-bottom:1px solid rgba(165,82,41,0.4)">give on our DonorBox page</a>.</p>
-        </noscript>
+      <div style="margin-top:clamp(32px,4vw,48px)">
+        <a href="{modal}" style="display:inline-block;padding:18px 44px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase" class="give-btn">Give online</a>
+        <p style="font-size:13px;line-height:1.7;margin:20px 0 0;color:rgba(43,43,43,0.7)">Secure giving through Planning Center. Give once, or set up a recurring gift.</p>
       </div>
     </div>
   </section>
@@ -475,15 +481,15 @@ HOME_LEAD = ('<p style="font-size:16px;line-height:1.85;margin:20px 0 0;'
 
 
 def donate_section(eyebrow, heading, lead=""):
-    return DONATE_SECTION.format(campaign=DONORBOX_CAMPAIGN, eyebrow=eyebrow,
+    return DONATE_SECTION.format(modal=CHURCH_CENTER_MODAL, eyebrow=eyebrow,
                                  heading=heading, lead=lead)
 
 
 # Home: the donate form is the closing call to action, just above the footer.
 HOME_ANCHOR = '<footer style="background:#487a81;color:#f1ead8">'
 
-# Give: the form lives inside the "Give online" card, above the QR code. The
-# design's auto-fit grid is swapped for an explicit one so the card can be
+# Give: the give button lives inside the "Give online" card, above the QR code.
+# The design's auto-fit grid is swapped for an explicit one so the card can be
 # ordered ahead of "Why it matters" when the columns stack.
 GIVE_CSS = (
     ".give-grid{display:grid;grid-template-columns:minmax(0,1fr);"
@@ -494,11 +500,8 @@ GIVE_CSS = (
     ".give-card{order:0}}"
 )
 
-GIVE_WIDGET = """<div style="margin-top:26px">
-          <dbox-widget campaign="{campaign}" type="donation_form" enable-auto-scroll="true"></dbox-widget>
-          <noscript>
-            <p style="font-size:14px;line-height:1.75;margin:18px 0 0;color:rgba(43,43,43,0.8)">The giving form needs JavaScript. You can also <a href="https://donorbox.org/{campaign}" style="border-bottom:1px solid rgba(165,82,41,0.4)">give on our DonorBox page</a>, or scan the code below.</p>
-          </noscript>
+GIVE_BUTTON = """<div style="margin-top:26px">
+          <a href="{modal}" style="display:block;text-align:center;padding:18px 28px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase" class="give-btn">Give online</a>
         </div>
         """
 
@@ -507,8 +510,8 @@ GIVE_QR_ROW = ('<div style="display:flex;flex-wrap:wrap;align-items:center;'
 
 
 def give_layout(body):
-    """Move the DonorBox form into the "Give online" card, above the QR code."""
-    widget = GIVE_WIDGET.format(campaign=DONORBOX_CAMPAIGN)
+    """Put the give button in the "Give online" card, above the QR code."""
+    widget = GIVE_BUTTON.format(modal=CHURCH_CENTER_MODAL)
     edits = [
         ('<div style="display:grid;grid-template-columns:repeat(auto-fit,'
          'minmax(320px,1fr));gap:clamp(36px,5vw,72px);align-items:start">',
@@ -521,6 +524,8 @@ def give_layout(body):
          "direct your gift.",
          "Give once, or set up a recurring gift. Prefer your phone? Scan the "
          "code below."),
+        ("Secure giving through our online donation platform.",
+         "Secure giving through Planning Center."),
         (GIVE_QR_ROW,
          widget + '<div style="display:flex;flex-wrap:wrap;align-items:center;'
          'gap:22px;margin-top:30px;border-top:1px solid rgba(43,43,43,0.12);'
@@ -530,7 +535,7 @@ def give_layout(body):
         assert body.count(old) == 1, "Give page layout changed: " + old[:60]
         body = body.replace(old, new)
 
-    # The "Give Now" button pointed at a form that is now on the same screen.
+    # The "Give Now" button pointed at a card that is now on the same screen.
     button = re.search(r'\s*<a href="#donate"[^>]*>Give Now</a>', body)
     assert button, "Give page: donate button not found"
     return body[:button.start()] + body[button.end():]
@@ -554,13 +559,13 @@ def compile_page(page, assets, base_css):
     if page["url"] == "/give/":
         body_html = give_layout(body_html)
         css += "\n" + GIVE_CSS
-        extra_head = DONORBOX_HEAD
+        extra_head = CHURCH_CENTER_HEAD
     elif page["url"] == "/":
         section = donate_section("Give", "Give to the work in West Africa.",
                                  HOME_LEAD)
         assert HOME_ANCHOR in body_html, "Home page layout changed"
         body_html = body_html.replace(HOME_ANCHOR, section + HOME_ANCHOR, 1)
-        extra_head = DONORBOX_HEAD
+        extra_head = CHURCH_CENTER_HEAD
 
     # Only keep hover/focus rules whose element survived the edits above.
     used = [r for r in c.rules
@@ -568,6 +573,8 @@ def compile_page(page, assets, base_css):
             or (' %s"' % r[1:r.index(":")]) in body_html]
     if used:
         css += "\n" + "\n".join(used)
+    if 'class="give-btn"' in body_html:
+        css += "\n" + GIVE_BTN_CSS
 
     doc = HEAD.format(title=html.escape(page["title"]),
                       desc=html.escape(page["desc"]),
