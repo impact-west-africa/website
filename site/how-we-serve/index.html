@@ -7,15 +7,15 @@
 <meta name="description" content="Farming God&#x27;s Way training, rural medical care, and humanitarian relief in Senegal — meeting real needs and sharing Jesus.">
 <link rel="canonical" href="https://impactwestafrica.org/how-we-serve/">
 <meta name="theme-color" content="#f1ead8">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
-<link rel="icon" href="/assets/icon-512.png" sizes="512x512">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="/assets/favicon-32.png?v=a2cc95ae" sizes="32x32">
+<link rel="icon" href="/assets/icon-512.png?v=80a1f2b5" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=6870a4a5">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IMPACT West Africa">
 <meta property="og:title" content="How We Serve — IMPACT West Africa">
 <meta property="og:description" content="Farming God&#x27;s Way training, rural medical care, and humanitarian relief in Senegal — meeting real needs and sharing Jesus.">
 <meta property="og:url" content="https://impactwestafrica.org/how-we-serve/">
-<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg">
+<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg?v=a7204990">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +34,8 @@ section { scroll-margin-top: 84px; }
 
 .site-head{position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)}
 .head-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
-.brand{display:flex;align-items:center;gap:12px;color:#2b2b2b}
-.brand img{height:clamp(52px,6vw,64px);width:auto}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;color:#2b2b2b}
+.brand img{height:clamp(52px,6vw,64px);width:auto;object-fit:contain}
 .nav-d{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(14px,2vw,26px)}
 .nav-m{display:none;align-items:center;gap:10px}
 .nav-top{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b}
@@ -67,6 +67,16 @@ section { scroll-margin-top: 84px; }
 details[open]>summary .s-plus{display:none}
 details[open]>summary .s-minus{display:inline}
 @media (max-width:859px){.nav-d{display:none}.nav-m{display:flex}}
+/* The logo is ~4:1, so at 52px tall it is 209px wide - wide enough that the
+   Give button and hamburger wrapped onto a second row on a 390px phone. Below
+   the desktop breakpoint the row is locked to one line and the logo scales
+   with the viewport instead. */
+@media (max-width:859px){
+.head-in{flex-wrap:nowrap;gap:12px;padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+.brand img{height:clamp(40px,11vw,64px)}
+.nav-m{flex:none;gap:8px}
+}
+@media (max-width:389px){.nav-give-m{padding:10px 12px;letter-spacing:0.1em}}
 
 #serve-links>div::-webkit-scrollbar{display:none}
 .serve-tab{flex:0 0 auto;white-space:nowrap;border-bottom:3px solid transparent;padding:16px 2px 13px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(43,43,43,0.62)}
@@ -96,7 +106,7 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
 <header class="site-head">
     <div class="head-in">
       <a href="/" class="brand">
-        <img src="/assets/logo.png" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
+        <img src="/assets/logo.png?v=bfc36042" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
       </a>
       <nav class="nav-d" aria-label="Main">
         <a href="/" class="nav-top">Home</a>
@@ -158,7 +168,7 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
         </div>
         <div style="display:flex;flex-direction:column;gap:16px">
           <div style="position:relative;flex:1 1 0;min-height:240px">
-            <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-heart-village.jpg" alt="Tom and Suja Brane sitting with a village family around a cooking fire" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+            <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-heart-village.jpg?v=35603e9e" alt="Tom and Suja Brane sitting with a village family around a cooking fire" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
           </div>
           <div style="background:#ffffff;padding:28px 30px;flex:none">
             <p style="font-size:15px;font-weight:600;letter-spacing:0.02em;margin:0">Where did Jesus focus His ministry?</p>
@@ -172,7 +182,7 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
             <p style="font-size:15px;line-height:1.8;margin:22px 0 0;color:rgba(43,43,43,0.85)">Jesus came for those who were most in need.</p>
           </div>
           <div style="position:relative;flex:1 1 0;min-height:240px">
-            <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-heart-walker.jpg" alt="A young man walking with a new walker, supported by visitors and his mother" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+            <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-heart-walker.jpg?v=7207fb72" alt="A young man walking with a new walker, supported by visitors and his mother" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
           </div>
         </div>
       </div>
@@ -212,13 +222,13 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
             </div>
             <p style="font-size:12px;letter-spacing:0.02em;margin:12px 0 0;color:rgba(43,43,43,0.6)">Watch: Farming God's Way in West Africa</p>
           </div>
-          <div style="position:relative;aspect-ratio:4/3;width:100%;min-width:0;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-ag-circle.jpg" alt="Tom Brane sitting in a field talking with a circle of farmers" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:4/3;width:100%;min-width:0;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-ag-circle.jpg?v=7abaa5e5" alt="Tom Brane sitting in a field talking with a circle of farmers" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
           
-            <div style="position:relative;aspect-ratio:4/3;width:100%;min-width:0;overflow:hidden" class="ag-wide"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-ag-planting.jpg" alt="A woman planting seed by hand in a prepared field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+            <div style="position:relative;aspect-ratio:4/3;width:100%;min-width:0;overflow:hidden" class="ag-wide"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-ag-planting.jpg?v=21d5e315" alt="A woman planting seed by hand in a prepared field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
           
         </div>
         
-          <div style="grid-area:media2;min-width:0;position:relative;aspect-ratio:4/3;width:100%;overflow:hidden" class="ag-narrow"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-ag-planting.jpg" alt="A woman planting seed by hand in a prepared field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="grid-area:media2;min-width:0;position:relative;aspect-ratio:4/3;width:100%;overflow:hidden" class="ag-narrow"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-ag-planting.jpg?v=21d5e315" alt="A woman planting seed by hand in a prepared field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
         
       </div>
     </section>
@@ -237,12 +247,12 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
           </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(32px,4vw,48px)" class="ag-sq">
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq1.jpg" alt="A farmer harvesting bitter eggplant into buckets" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq2.jpg" alt="Mulched rows of carrots and onions under drip irrigation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq3.jpg" alt="A bucket filled with freshly picked green peppers" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq4.jpg" alt="A farmer kneeling in a thriving field of beans" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq5.jpg" alt="A large group of farmers at a Farming God&#x27;s Way training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq6.jpg" alt="Trainees gathered in a field during the West Africa regional training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq1.jpg?v=176ee9bc" alt="A farmer harvesting bitter eggplant into buckets" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq2.jpg?v=cecffb96" alt="Mulched rows of carrots and onions under drip irrigation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq3.jpg?v=10861638" alt="A bucket filled with freshly picked green peppers" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq4.jpg?v=248a8255" alt="A farmer kneeling in a thriving field of beans" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq5.jpg?v=f66259c4" alt="A large group of farmers at a Farming God&#x27;s Way training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-sq6.jpg?v=ff3053d1" alt="Trainees gathered in a field during the West Africa regional training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
         </div>
       </div>
     </section>
@@ -263,7 +273,7 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
           </div>
         </div>
         <div style="position:relative;aspect-ratio:16/9;margin-top:clamp(32px,4vw,48px)">
-          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-training.jpg" alt="Scenes from the West Africa Farming God&#x27;s Way regional training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-ag-training.jpg?v=0f9a1c62" alt="Scenes from the West Africa Farming God&#x27;s Way regional training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
         </div>
       </div>
     </section>
@@ -300,8 +310,8 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
           <p style="font-size:16px;line-height:1.85;margin:18px 0 0;color:rgba(43,43,43,0.85)">And so my ministry involves a bit of everything—providing direct patient care, consulting with U.S.-based doctors for expert guidance on complex cases, coordinating with local specialists, and doing a fair amount of home visits to our patients.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
-          <div style="position:relative;aspect-ratio:3/2;flex:1 0 auto;width:100%;min-width:0;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-med-child.jpg" alt="Suja Brane holding the hand of a child with a feeding tube" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:3/2;flex:1 0 auto;width:100%;min-width:0;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-med-screening.jpg" alt="A health worker measuring a child&#x27;s arm during a screening" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:3/2;flex:1 0 auto;width:100%;min-width:0;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-med-child.jpg?v=9b06d146" alt="Suja Brane holding the hand of a child with a feeding tube" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:3/2;flex:1 0 auto;width:100%;min-width:0;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-med-screening.jpg?v=2cb23124" alt="A health worker measuring a child&#x27;s arm during a screening" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
         </div>
       </div>
 <p style="font-size:16px;line-height:1.85;margin:18px 0 0;max-width:820px;color:rgba(43,43,43,0.85)">To be honest, it's often messy and very stressful. Many of the cases we face are far beyond our resources or capacity. I often feel in over my head, and yet... it's in those moments that God shows up.</p>
@@ -322,10 +332,10 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
           </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:clamp(32px,4vw,48px)">
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq1.jpg" alt="A teenager helping a girl walk in a village courtyard" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq2.jpg" alt="A young man smiling in his wheelchair" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq3.jpg" alt="A girl with a cast on her leg eating a meal" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq4.jpg" alt="Suja Brane talking with a patient in a wheelchair at the clinic" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq1.jpg?v=e1352b30" alt="A teenager helping a girl walk in a village courtyard" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq2.jpg?v=ee4e64bf" alt="A young man smiling in his wheelchair" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq3.jpg?v=01f2526b" alt="A girl with a cast on her leg eating a meal" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+          <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/serve-med-sq4.jpg?v=a78f6679" alt="Suja Brane talking with a patient in a wheelchair at the clinic" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
         </div>
       </div>
     </section>
@@ -363,9 +373,9 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
       <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Humanitarian</h2>
       <p style="font-size:clamp(24px,3vw,34px);line-height:1.4;font-weight:300;margin:24px 0 0;max-width:640px">Coming soon . . .</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:clamp(36px,5vw,56px)">
-        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-hum-kids.jpg" alt="Children waving outside shelters in a displacement camp" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-hum-food.jpg" alt="Villagers standing behind sacks of grain and bottles of oil ready for distribution" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-hum-camp.jpg" alt="Tarpaulin shelters stretching across a displacement camp" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-hum-kids.jpg?v=883bb603" alt="Children waving outside shelters in a displacement camp" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-hum-food.jpg?v=150df895" alt="Villagers standing behind sacks of grain and bottles of oil ready for distribution" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/serve-hum-camp.jpg?v=db6c5087" alt="Tarpaulin shelters stretching across a displacement camp" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
       </div>
     </section>
   </div>
@@ -378,7 +388,7 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
 
   <footer style="background:#2b2b2b;color:#f1ead8">
     <div style="max-width:960px;margin:0 auto;padding:clamp(32px,4vw,40px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-start">
-      <img src="/assets/badge-footer.png" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
+      <img src="/assets/badge-footer.png?v=bda97dd6" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Explore</span>
         <a href="/" style="font-size:14px;color:#f1ead8">Home</a>
@@ -402,5 +412,6 @@ body:has(#humanitarian:target) .serve-tab[href="#humanitarian"]{color:#2b2b2b;fo
     </div>
   </footer>
 </div>
+<script src="/assets/nav.js?v=80c27a5f" defer></script>
 </body>
 </html>

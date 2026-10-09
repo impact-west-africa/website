@@ -7,15 +7,15 @@
 <meta name="description" content="Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.">
 <link rel="canonical" href="https://impactwestafrica.org/">
 <meta name="theme-color" content="#f1ead8">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
-<link rel="icon" href="/assets/icon-512.png" sizes="512x512">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="/assets/favicon-32.png?v=a2cc95ae" sizes="32x32">
+<link rel="icon" href="/assets/icon-512.png?v=80a1f2b5" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=6870a4a5">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IMPACT West Africa">
 <meta property="og:title" content="IMPACT West Africa">
 <meta property="og:description" content="Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.">
 <meta property="og:url" content="https://impactwestafrica.org/">
-<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg">
+<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg?v=a7204990">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +34,8 @@ section { scroll-margin-top: 84px; }
 
 .site-head{position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)}
 .head-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
-.brand{display:flex;align-items:center;gap:12px;color:#2b2b2b}
-.brand img{height:clamp(52px,6vw,64px);width:auto}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;color:#2b2b2b}
+.brand img{height:clamp(52px,6vw,64px);width:auto;object-fit:contain}
 .nav-d{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(14px,2vw,26px)}
 .nav-m{display:none;align-items:center;gap:10px}
 .nav-top{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b}
@@ -67,6 +67,16 @@ section { scroll-margin-top: 84px; }
 details[open]>summary .s-plus{display:none}
 details[open]>summary .s-minus{display:inline}
 @media (max-width:859px){.nav-d{display:none}.nav-m{display:flex}}
+/* The logo is ~4:1, so at 52px tall it is 209px wide - wide enough that the
+   Give button and hamburger wrapped onto a second row on a 390px phone. Below
+   the desktop breakpoint the row is locked to one line and the logo scales
+   with the viewport instead. */
+@media (max-width:859px){
+.head-in{flex-wrap:nowrap;gap:12px;padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+.brand img{height:clamp(40px,11vw,64px)}
+.nav-m{flex:none;gap:8px}
+}
+@media (max-width:389px){.nav-give-m{padding:10px 12px;letter-spacing:0.1em}}
 
 .hero{position:relative;background:#2b2b2b;overflow:hidden}
 .hero-stage{position:relative;width:100%;aspect-ratio:16/9;max-height:74vh;min-height:320px}
@@ -123,7 +133,7 @@ details[open]>summary .s-minus{display:inline}
 <header class="site-head">
     <div class="head-in">
       <a href="/" class="brand">
-        <img src="/assets/logo.png" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
+        <img src="/assets/logo.png?v=bfc36042" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
       </a>
       <nav class="nav-d" aria-label="Main">
         <a href="/" class="nav-top nav-cur" aria-current="page">Home</a>
@@ -157,14 +167,14 @@ details[open]>summary .s-minus{display:inline}
       <input class="hero-r" type="radio" name="hero" id="h6" aria-label="Show photo 6">
       <input class="hero-r" type="radio" name="hero" id="h7" aria-label="Show photo 7">
       <input class="hero-r" type="radio" name="hero" id="h8" aria-label="Show photo 8">
-      <div class="hs" id="hs1"><img src="/assets/hero-training.jpg" alt="Tom Brane pouring water over soil to demonstrate runoff at an outdoor farming training" loading="eager" fetchpriority="high" decoding="async"></div>
-      <div class="hs" id="hs2"><img src="/assets/hero-children.jpg" alt="A group of smiling children in a Senegalese village" loading="lazy" decoding="async"></div>
-      <div class="hs" id="hs3"><img src="/assets/hero-maize.jpg" alt="A farmer standing with his arms raised in a tall field of maize" loading="lazy" decoding="async"></div>
-      <div class="hs" id="hs4"><img src="/assets/hero-baptism.jpg" alt="A woman being baptized while the congregation looks on" loading="lazy" decoding="async"></div>
-      <div class="hs" id="hs5"><img src="/assets/hero-clinic.jpg" alt="Suja Brane listening to a young child&#x27;s chest with a stethoscope" loading="lazy" decoding="async"></div>
-      <div class="hs" id="hs6"><img src="/assets/hero-prayer.jpg" alt="Farmers kneeling in a circle to pray at the edge of a field" loading="lazy" decoding="async"></div>
-      <div class="hs" id="hs7"><img src="/assets/hero-brace.jpg" alt="Suja Brane fitting a leg brace for a young man in a wheelchair" loading="lazy" decoding="async"></div>
-      <div class="hs" id="hs8"><img src="/assets/hero-visit.jpg" alt="Children and a visitor playing with a ball beside a child lying on a mat" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs1"><img src="/assets/hero-training.jpg?v=a7204990" alt="Tom Brane pouring water over soil to demonstrate runoff at an outdoor farming training" loading="eager" fetchpriority="high" decoding="async"></div>
+      <div class="hs" id="hs2"><img src="/assets/hero-children.jpg?v=bb791ddb" alt="A group of smiling children in a Senegalese village" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs3"><img src="/assets/hero-maize.jpg?v=79273cf4" alt="A farmer standing with his arms raised in a tall field of maize" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs4"><img src="/assets/hero-baptism.jpg?v=63f2ec36" alt="A woman being baptized while the congregation looks on" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs5"><img src="/assets/hero-clinic.jpg?v=3cc0641a" alt="Suja Brane listening to a young child&#x27;s chest with a stethoscope" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs6"><img src="/assets/hero-prayer.jpg?v=8e97181e" alt="Farmers kneeling in a circle to pray at the edge of a field" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs7"><img src="/assets/hero-brace.jpg?v=8a0656d7" alt="Suja Brane fitting a leg brace for a young man in a wheelchair" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs8"><img src="/assets/hero-visit.jpg?v=9c3cc21a" alt="Children and a visitor playing with a ball beside a child lying on a mat" loading="lazy" decoding="async"></div>
       <div class="hero-dots"><label for="h1"></label><label for="h2"></label><label for="h3"></label><label for="h4"></label><label for="h5"></label><label for="h6"></label><label for="h7"></label><label for="h8"></label></div>
     </div>
   </section>
@@ -182,11 +192,11 @@ details[open]>summary .s-minus{display:inline}
         <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Why we exist</h2>
         <span style="display:block;width:44px;height:1px;background:#cca54f;margin-top:18px"></span>
         <div style="position:relative;aspect-ratio:4/3;margin-top:32px">
-          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/portrait-bw.jpg" alt="Black and white portrait of children in a Senegalese village" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/portrait-bw.jpg?v=5869b325" alt="Black and white portrait of children in a Senegalese village" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
         </div>
         <div style="margin-top:28px;display:flex;justify-content:center;padding-left:clamp(40px,12vw,80px)">
           <div style="position:relative;width:55%;max-width:300px">
-            <img src="/assets/map-africa.jpg" alt="Physical map of Africa showing Senegal in West Africa" style="width:100%;height:auto;display:block">
+            <img src="/assets/map-africa.jpg?v=0c31b4d9" alt="Physical map of Africa showing Senegal in West Africa" style="width:100%;height:auto;display:block">
             <span style="position:absolute;left:6%;top:28.6%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #a55229;border-radius:50%;pointer-events:none"></span>
             <div style="position:absolute;right:100%;top:28.6%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;margin-right:-6%;pointer-events:none">
               <span style="font-size:clamp(10px,2.8vw,13px);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#a55229;white-space:nowrap">Senegal</span>
@@ -245,7 +255,7 @@ details[open]>summary .s-minus{display:inline}
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,4vw,56px);align-items:center;margin-top:28px">
         <p style="font-size:clamp(19px,2.2vw,25px);line-height:1.6;font-weight:300;margin:0">Through agricultural development and medical care, we come alongside communities to meet real needs. As we build relationships of trust and respect, we have the privilege of sharing Jesus and the hope He offers.</p>
         <div style="position:relative;aspect-ratio:4/3">
-          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/embrace.jpg" alt="A girl smiling over the shoulder of the worker carrying her at the farm" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/embrace.jpg?v=cd5315eb" alt="A girl smiling over the shoulder of the worker carrying her at the farm" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:30px;margin-top:clamp(40px,5vw,60px)">
@@ -276,14 +286,14 @@ details[open]>summary .s-minus{display:inline}
 
   <section style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(40px,5.5vw,64px)">
     <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-tires.jpg" alt="A boy holding two bicycle tires in a village street" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-field-team.jpg" alt="Tom Brane and farmers kneeling together in a field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-friends.jpg" alt="Suja Brane laughing with a Senegalese friend" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-garden-rows.jpg" alt="Mulched garden rows of carrots and onions at the Beersheba farm" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-home-visit.jpg" alt="Tom and Suja Brane visiting a patient resting on a mat at home" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-portrait.jpg" alt="A young woman standing in front of a thatched hut" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-sorghum.jpg" alt="A farmer standing in front of a towering stand of sorghum" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-cart.jpg" alt="A girl sitting on a donkey cart in a village" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-tires.jpg?v=4c48fb9b" alt="A boy holding two bicycle tires in a village street" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-field-team.jpg?v=cea37127" alt="Tom Brane and farmers kneeling together in a field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-friends.jpg?v=1451848f" alt="Suja Brane laughing with a Senegalese friend" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-garden-rows.jpg?v=5b19bc96" alt="Mulched garden rows of carrots and onions at the Beersheba farm" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-home-visit.jpg?v=19b03d26" alt="Tom and Suja Brane visiting a patient resting on a mat at home" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-portrait.jpg?v=7cf129d7" alt="A young woman standing in front of a thatched hut" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-sorghum.jpg?v=878667d2" alt="A farmer standing in front of a towering stand of sorghum" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-cart.jpg?v=58dd1eba" alt="A girl sitting on a donkey cart in a village" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
     </div>
   </section>
 
@@ -318,7 +328,7 @@ details[open]>summary .s-minus{display:inline}
 
   <footer style="background:#2b2b2b;color:#f1ead8">
     <div style="max-width:960px;margin:0 auto;padding:clamp(32px,4vw,40px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-start">
-      <img src="/assets/badge-footer.png" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
+      <img src="/assets/badge-footer.png?v=bda97dd6" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Explore</span>
         <a href="/" style="font-size:14px;color:#f1ead8">Home</a>
@@ -342,5 +352,6 @@ details[open]>summary .s-minus{display:inline}
     </div>
   </footer>
 </div>
+<script src="/assets/nav.js?v=80c27a5f" defer></script>
 </body>
 </html>

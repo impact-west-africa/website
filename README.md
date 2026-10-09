@@ -31,14 +31,23 @@ only publish from the repo root or `/docs`, not from `site/`). After that every
 push to `main` runs `.github/workflows/pages.yml`, which uploads `site/` and
 deploys it.
 
-## No JavaScript
+## Almost no JavaScript
 
-The only script the site ships is `assets/contact.js` (and Planning Center's
-modal on `/give/`). Everything else that moves is CSS:
+The site ships two small scripts — `assets/nav.js` and `assets/contact.js` —
+plus Planning Center's modal on `/give/`. Everything else that moves is CSS:
 
 - **Header.** Desktop dropdowns open on `:hover` / `:focus-within`; the mobile
   hamburger and its three section accordions are `<details>` elements. The
-  desktop and mobile headers swap at 860px, the same breakpoint the design used.
+  desktop and mobile headers swap at 860px, the same breakpoint the design
+  used. Below that breakpoint the header row is `flex-wrap: nowrap` and the
+  logo scales with the viewport: the logo is about 4:1, so at its desktop
+  height it is wide enough to push the Give button and hamburger onto a second
+  row on a 390px phone.
+  `assets/nav.js` is the one thing `<details>` cannot do — closing the menu
+  when a link inside it is tapped. A link to a `#fragment` on the page already
+  loaded does not navigate, so without it the panel stays open on top of the
+  section the visitor just asked for. Without the script the menu still opens
+  and closes from its own button.
 - **Home hero.** Eight photos crossfade on a 32-second CSS animation (4s each).
   A hidden radio per slide sits in front of them: checking one stops the
   animation and pins that photo, which is what the design's dots did. The dots
@@ -48,6 +57,29 @@ modal on `/give/`). Everything else that moves is CSS:
   With no hash, "Heart for the Poor" shows. The rules are ordered so a browser
   without `:has()` falls back to showing panels rather than hiding all of them.
 - **Give accordions.** "Why choose ACH?" and "Need help?" are `<details>`.
+
+## Cache busting
+
+GitHub Pages serves everything with `Cache-Control: max-age=600` and offers no
+way to change that, so after a deploy a browser can keep showing a stale image
+or script for ten minutes — longer for a tab that is already open. Every asset
+URL therefore carries a version query built from a hash of that file's bytes:
+
+```
+/assets/logo.png?v=bfc36042
+```
+
+The hash is per file, not per build. Re-running the compiler with nothing
+changed produces byte-identical output and identical URLs; editing one photo
+or script moves only that one URL and leaves the other ~60 alone. A single
+build-wide stamp — the commit hash, say — would be simpler, but it would expire
+all 7 MB of photographs on every deploy including the ones that did not change,
+so returning visitors would re-download the lot after a one-word copy edit.
+
+`asset_url()` in the compiler is the only place that builds an `/assets/` URL,
+and it raises on an unknown filename, so a reference can't quietly ship without
+a version. `404.html` is hand-written rather than compiled, so its references
+get the same treatment by substitution on the way out.
 
 ## Giving
 

@@ -23,6 +23,7 @@ Usage:  python3 tools/convert-design.py [SRC_DIR]
 """
 
 import datetime
+import hashlib
 import html
 import json
 import os
@@ -134,6 +135,19 @@ SC_IF = {
 HREF_OVERRIDES = {
     "/give/": {"#give-online": CHURCH_CENTER_MODAL},
 }
+
+# Extra classes to hang on an element, per route, keyed by a snippet of its
+# raw style attribute. Used where one element on one page needs a rule that
+# an inline style cannot express (a media query).
+CLASS_OVERRIDES = {
+    # The "Meeting physical needs / Building relationships / ..." line under
+    # the Give hero. It wraps to three lines on a phone, where centring reads
+    # better than the ragged left-aligned block.
+    "/give/": {"letter-spacing:0.05em;font-weight:500;margin:20px 0 0;"
+               "color:#bcdce0": "tagline-center"},
+}
+
+TAGLINE_CSS = "\n@media (max-width:699px){.tagline-center{text-align:center}}\n"
 
 # onClick handlers that turn a <button> into a <summary> (Give page accordions).
 ACCORDION_TOGGLES = {"toggleAch", "toggleHelp"}
@@ -285,7 +299,26 @@ IMAGES = {
     "w/epistle-baobab-43.jpg": ("baobab.jpg", 1200),
 }
 
-SOCIAL_IMAGE = "/assets/hero-training.jpg"
+SOCIAL_IMAGE = "hero-training.jpg"
+
+# Cache busting. GitHub Pages serves everything with `Cache-Control:
+# max-age=600` and gives no way to change that, so a browser can hold a stale
+# asset for ten minutes after a deploy - and much longer for anything it
+# already has open. Every asset URL therefore carries ?v=<hash of that file's
+# bytes>, so a changed file gets a new URL and an unchanged one does not. A
+# single build-wide stamp (the commit hash) would work too, but it would expire
+# all 7 MB of photographs on every deploy, including the ones that did not
+# change. Filled in by build_assets().
+ASSET_VERSIONS = {}
+
+
+def asset_url(name):
+    """/assets/logo.png -> /assets/logo.png?v=1a2b3c4d"""
+    version = ASSET_VERSIONS.get(name)
+    if version is None:
+        raise SystemExit("unknown asset: " + name)
+    return "/assets/%s?v=%s" % (name, version)
+
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
         "meta", "param", "source", "track", "wbr"}
@@ -354,14 +387,15 @@ def header(active):
             '<span class="m-sign">%s</span></summary><div class="m-sub">%s</div>'
             '</details>' % (href, aria, label, SIGN, items))
 
-    return HEADER.format(desktop="\n        ".join(desktop),
+    return HEADER.format(logo=asset_url("logo.png"),
+                         desktop="\n        ".join(desktop),
                          mobile="\n          ".join(mobile))
 
 
 HEADER = """  <header class="site-head">
     <div class="head-in">
       <a href="/" class="brand">
-        <img src="/assets/logo.png" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
+        <img src="{logo}" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
       </a>
       <nav class="nav-d" aria-label="Main">
         {desktop}
@@ -382,8 +416,8 @@ HEADER = """  <header class="site-head">
 NAV_CSS = """
 .site-head{position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)}
 .head-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
-.brand{display:flex;align-items:center;gap:12px;color:#2b2b2b}
-.brand img{height:clamp(52px,6vw,64px);width:auto}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;color:#2b2b2b}
+.brand img{height:clamp(52px,6vw,64px);width:auto;object-fit:contain}
 .nav-d{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(14px,2vw,26px)}
 .nav-m{display:none;align-items:center;gap:10px}
 .nav-top{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b}
@@ -415,6 +449,16 @@ NAV_CSS = """
 details[open]>summary .s-plus{display:none}
 details[open]>summary .s-minus{display:inline}
 @media (max-width:859px){.nav-d{display:none}.nav-m{display:flex}}
+/* The logo is ~4:1, so at 52px tall it is 209px wide - wide enough that the
+   Give button and hamburger wrapped onto a second row on a 390px phone. Below
+   the desktop breakpoint the row is locked to one line and the logo scales
+   with the viewport instead. */
+@media (max-width:859px){
+.head-in{flex-wrap:nowrap;gap:12px;padding-left:clamp(14px,4vw,32px);padding-right:clamp(14px,4vw,32px)}
+.brand img{height:clamp(40px,11vw,64px)}
+.nav-m{flex:none;gap:8px}
+}
+@media (max-width:389px){.nav-give-m{padding:10px 12px;letter-spacing:0.1em}}
 """
 
 
@@ -444,9 +488,9 @@ def hero_block():
         load = ('loading="eager" fetchpriority="high"' if slot in EAGER
                 else 'loading="lazy"')
         slides.append(
-            '<div class="hs" id="hs%d"><img src="/assets/%s" alt="%s" %s '
+            '<div class="hs" id="hs%d"><img src="%s" alt="%s" %s '
             'decoding="async"></div>'
-            % (i, name, html.escape(ALT[slot], quote=True), load))
+            % (i, asset_url(name), html.escape(ALT[slot], quote=True), load))
         dots.append('<label for="h%d"></label>' % i)
         # -1s so the first slide is already faded in at load.
         delay = (i - 1) * HERO_SECONDS - total - 1
@@ -568,10 +612,11 @@ def decls(style):
 
 
 class Compiler(HTMLParser):
-    def __init__(self, assets, href_overrides=None):
+    def __init__(self, assets, href_overrides=None, class_overrides=None):
         super().__init__(convert_charrefs=False)
         self.assets = assets      # export path -> published filename
         self.href_overrides = href_overrides or {}
+        self.class_overrides = class_overrides or {}
         self.buf = []
         self.rules = []           # generated hover/focus CSS rules
         self.classes = {}         # (pseudo, css) -> class name
@@ -596,11 +641,11 @@ class Compiler(HTMLParser):
         return self.classes[key]
 
     def asset(self, path):
-        """assets/w/foo.jpg -> /assets/published-name.jpg (root-absolute)."""
+        """assets/w/foo.jpg -> /assets/published-name.jpg?v=hash."""
         key = path[len("assets/"):]
         if key not in self.assets:
             raise SystemExit("asset not in the resize plan: " + path)
-        return "/assets/" + self.assets[key]
+        return asset_url(self.assets[key])
 
     def rewrite_attrs(self, tag, attrs):
         out, extra_class = [], []
@@ -620,6 +665,9 @@ class Compiler(HTMLParser):
                     extra_class.append("ag-grid")
                 if "{{ agSqCols }}" in v:
                     extra_class.append("ag-sq")
+                for needle, cls in self.class_overrides.items():
+                    if needle in v:
+                        extra_class.append(cls)
             if self.in_summary and k == "aria-expanded":
                 continue      # <details> announces its own state
             v = interp(v)
@@ -854,9 +902,10 @@ def sips(src, dst, max_width, fmt):
 
 
 def build_assets():
-    """Re-encode every referenced asset into site/assets/.
+    """Re-encode every referenced asset into site/assets/, scripts included.
 
-    Returns {export path: published filename}.
+    Records each published file's content hash in ASSET_VERSIONS and returns
+    {export path: published filename}.
     """
     dst_dir = os.path.join(OUT, "assets")
     os.makedirs(dst_dir, exist_ok=True)
@@ -868,6 +917,14 @@ def build_assets():
         fmt = "png" if out_name.endswith(".png") else "jpg"
         sips(src, os.path.join(dst_dir, out_name), max_w, fmt)
         mapping[name] = out_name
+
+    for script in SCRIPTS:
+        shutil.copy(os.path.join(REPO, "tools", script),
+                    os.path.join(dst_dir, script))
+
+    for out_name in sorted(os.listdir(dst_dir)):
+        with open(os.path.join(dst_dir, out_name), "rb") as fh:
+            ASSET_VERSIONS[out_name] = hashlib.sha256(fh.read()).hexdigest()[:8]
     return mapping
 
 
@@ -895,9 +952,9 @@ HEAD = """<!doctype html>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{site}{url}">
 <meta name="theme-color" content="#f1ead8">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
-<link rel="icon" href="/assets/icon-512.png" sizes="512x512">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="{icon32}" sizes="32x32">
+<link rel="icon" href="{icon512}" sizes="512x512">
+<link rel="apple-touch-icon" href="{touch}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IMPACT West Africa">
 <meta property="og:title" content="{title}">
@@ -919,7 +976,13 @@ FOOT = """</body>
 </html>
 """
 
-CONTACT_JS = '<script src="/assets/contact.js" defer></script>\n'
+# contact.js posts the Get Involved form; nav.js closes the mobile menu when a
+# link inside it is tapped. Copied from tools/ by build_assets().
+SCRIPTS = ("contact.js", "nav.js")
+
+
+def script_tag(name):
+    return '<script src="%s" defer></script>\n' % asset_url(name)
 CHURCH_CENTER_HEAD = ('<script src="https://js.churchcenter.com/modal/v1" '
                       'defer></script>\n')
 
@@ -958,10 +1021,11 @@ def compile_page(page, assets):
     elif page["url"] == "/how-we-serve/":
         css += "\n" + serve_css() + "\n" + AG_CSS
     elif page["url"] == "/give/":
-        css += ACC_CSS
+        css += ACC_CSS + TAGLINE_CSS
         extra_head = CHURCH_CENTER_HEAD
 
-    c = Compiler(assets, HREF_OVERRIDES.get(page["url"]))
+    c = Compiler(assets, HREF_OVERRIDES.get(page["url"]),
+                 CLASS_OVERRIDES.get(page["url"]))
     c.feed(body)
     c.close()
     assert not c.sc_stack and not c.skip_depth, "unbalanced sc-if/sc-for"
@@ -978,11 +1042,16 @@ def compile_page(page, assets):
 
     doc = HEAD.format(title=html.escape(page["title"]),
                       desc=html.escape(page["desc"]),
-                      site=SITE_URL, url=page["url"], image=SOCIAL_IMAGE,
+                      site=SITE_URL, url=page["url"],
+                      image=asset_url(SOCIAL_IMAGE),
+                      icon32=asset_url("favicon-32.png"),
+                      icon512=asset_url("icon-512.png"),
+                      touch=asset_url("apple-touch-icon.png"),
                       css=css.strip(), extra_head=extra_head)
     doc += body_html
+    doc += script_tag("nav.js")
     if 'id="contact-form"' in doc:
-        doc += CONTACT_JS
+        doc += script_tag("contact.js")
     doc += FOOT
     return doc
 
@@ -1007,10 +1076,14 @@ def main():
             fh.write(doc)
         print("%-26s %6.1f KB" % (page["out"], len(doc) / 1024))
 
-    shutil.copy(os.path.join(REPO, "tools", "contact.js"),
-                os.path.join(OUT, "assets", "contact.js"))
-    shutil.copy(os.path.join(REPO, "tools", "404.html"),
-                os.path.join(OUT, "404.html"))
+    # 404.html is hand-written rather than compiled, so its asset references
+    # get the same ?v= treatment here.
+    page404 = open(os.path.join(REPO, "tools", "404.html"),
+                   encoding="utf-8").read()
+    page404 = re.sub(r"/assets/([A-Za-z0-9._-]+)",
+                     lambda m: asset_url(m.group(1)), page404)
+    with open(os.path.join(OUT, "404.html"), "w", encoding="utf-8") as fh:
+        fh.write(page404)
     open(os.path.join(OUT, ".nojekyll"), "w").close()
     with open(os.path.join(OUT, "CNAME"), "w") as fh:
         fh.write("impactwestafrica.org\n")
