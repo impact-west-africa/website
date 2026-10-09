@@ -4,144 +4,260 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Give — IMPACT West Africa</title>
-<meta name="description" content="Your generosity helps IMPACT West Africa invest in people and communities through agricultural development, medical care, and the transforming hope of the Gospel.">
+<meta name="description" content="Give online through Planning Center or by mail. Your generosity helps meet real felt needs while opening doors for the Gospel.">
 <link rel="canonical" href="https://impactwestafrica.org/give/">
 <meta name="theme-color" content="#f1ead8">
-<link rel="icon" href="/assets/logo-dark.png">
-<link rel="apple-touch-icon" href="/assets/logo-dark.png">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/assets/icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IMPACT West Africa">
 <meta property="og:title" content="Give — IMPACT West Africa">
-<meta property="og:description" content="Your generosity helps IMPACT West Africa invest in people and communities through agricultural development, medical care, and the transforming hope of the Gospel.">
+<meta property="og:description" content="Give online through Planning Center or by mail. Your generosity helps meet real felt needs while opening doors for the Gospel.">
 <meta property="og:url" content="https://impactwestafrica.org/give/">
-<meta property="og:image" content="https://impactwestafrica.org/assets/hero-field.jpg">
+<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #f1ead8; color: #2b2b2b; font-family: Montserrat, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #a55229; text-decoration: none; }
-  a:hover { color: #2b2b2b; }
-  img { display: block; max-width: 100%; }
-  input, textarea, button { font: inherit; color: inherit; }
-  h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: pretty; }
-  p { text-wrap: pretty; }
-  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.give-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(36px,5vw,72px);align-items:start}
-.give-card{order:-1}
-@media (min-width:900px){.give-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}.give-card{order:0}}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f1ead8; color: #2b2b2b; font-family: Montserrat, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #a55229; text-decoration: none; }
+a:hover { color: #2b2b2b; }
+img { display: block; max-width: 100%; }
+input, textarea, button { font: inherit; color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; text-wrap: pretty; }
+p { text-wrap: pretty; }
+section { scroll-margin-top: 84px; }
+
+.site-head{position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)}
+.head-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.brand{display:flex;align-items:center;gap:12px;color:#2b2b2b}
+.brand img{height:clamp(52px,6vw,64px);width:auto}
+.nav-d{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(14px,2vw,26px)}
+.nav-m{display:none;align-items:center;gap:10px}
+.nav-top{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b}
+.nav-cur{font-weight:600;border-bottom:1px solid #cca54f;padding-bottom:3px}
+.nav-give{padding:11px 24px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase}
+.nav-give:hover{background:#2b2b2b;color:#f1ead8}
+.nav-item{position:relative;display:flex;align-items:center}
+.dd{position:absolute;top:100%;left:-18px;padding-top:14px;z-index:70;display:none}
+.dd-right{left:auto;right:0}
+.nav-item:hover>.dd,.nav-item:focus-within>.dd{display:block}
+.dd-in{background:#ffffff;border:1px solid rgba(43,43,43,0.12);box-shadow:0 12px 32px rgba(0,0,0,0.14);display:flex;flex-direction:column;padding:6px 0;min-width:230px}
+.dd-in a{padding:12px 18px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b;white-space:nowrap}
+.dd-in a:hover{background:#f1ead8;color:#a55229}
+.mnav>summary{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(43,43,43,0.2);border-radius:2px;cursor:pointer;font-size:20px;color:#2b2b2b;list-style:none}
+.mnav>summary::-webkit-details-marker{display:none}
+.mpanel{position:absolute;top:100%;left:0;right:0;background:#f1ead8;border-top:1px solid rgba(43,43,43,0.1);box-shadow:0 18px 30px rgba(0,0,0,0.12);max-height:calc(100vh - 80px);overflow-y:auto;padding:4px clamp(20px,4vw,32px) 28px;display:flex;flex-direction:column}
+.m-row,.m-sec{border-bottom:1px solid rgba(43,43,43,0.1)}
+.m-top{display:block;padding:16px 0;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b}
+.m-sec>summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none}
+.m-sec>summary::-webkit-details-marker{display:none}
+.m-sign{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;line-height:1;color:#a55229}
+.m-sub{display:flex;flex-direction:column;padding-bottom:10px}
+.m-sub a{display:block;padding:12px 0 12px 18px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#487a81}
+.m-give{margin-top:22px;display:block;text-align:center;padding:16px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase}
+.m-give:hover{background:#2b2b2b;color:#f1ead8}
+.m-give-sub{display:flex;justify-content:center;gap:28px;margin-top:14px}
+.m-give-sub a{padding:10px 0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#487a81}
+.s-minus{display:none}
+details[open]>summary .s-plus{display:none}
+details[open]>summary .s-minus{display:inline}
+@media (max-width:859px){.nav-d{display:none}.nav-m{display:flex}}
+
+.acc>summary{list-style:none;cursor:pointer}
+.acc>summary::-webkit-details-marker{display:none}
+
+.h1:hover{background:#f1ead8!important;color:#2b2b2b!important}
 .h2:hover{border-color:#cca54f!important;color:#cca54f!important}
-.give-btn:hover{background:#8f4623!important}
+.h3:hover{background:#2b2b2b!important}
+.h4:hover{background:#ecd9b9!important}
+.h5:hover{background:#2b2b2b!important;color:#f1ead8!important}
 </style>
 <script src="https://js.churchcenter.com/modal/v1" defer></script>
 </head>
 <body>
-<div style="width:100%;overflow-x:hidden">
+<div style="width:100%;overflow-x:hidden;overflow-x:clip">
 
-  <header style="position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)">
-    <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
-      <a href="/" style="display:flex;align-items:center;gap:12px;color:#2b2b2b">
-        <img src="/assets/logo-dark.png" alt="IMPACT — Impacting West Africa for Christ" style="height:46px;width:auto">
+<header class="site-head">
+    <div class="head-in">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
       </a>
-      <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(16px,2.4vw,30px)">
-        <a href="/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">Home</a>
-        <a href="/about/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">About</a>
-        <a href="/get-involved/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">Get Involved</a>
-        <a href="/give/" style="padding:11px 24px;background:#2b2b2b;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase">Give</a>
+      <nav class="nav-d" aria-label="Main">
+        <a href="/" class="nav-top">Home</a>
+        <div class="nav-item"><a href="/about/" class="nav-top">About</a><div class="dd"><div class="dd-in"><a href="/about/#story">Our Story</a><a href="/about/#board">Board of Directors</a><a href="/about/#partners">Our Partners</a></div></div></div>
+        <div class="nav-item"><a href="/how-we-serve/" class="nav-top">How We Serve</a><div class="dd"><div class="dd-in"><a href="/how-we-serve/#heart">Heart for the Poor</a><a href="/how-we-serve/#agriculture">Agriculture</a><a href="/how-we-serve/#medical">Medical</a><a href="/how-we-serve/#humanitarian">Humanitarian</a></div></div></div>
+        <div class="nav-item"><a href="/get-involved/" class="nav-top">Get Involved</a><div class="dd"><div class="dd-in"><a href="/get-involved/#pray">Pray With Us</a><a href="/get-involved/#snippets">Stay Connected</a><a href="/get-involved/#contact">Contact Us</a></div></div></div>
+        <div class="nav-item"><a href="/give/" class="nav-give" aria-current="page">Give</a><div class="dd dd-right"><div class="dd-in"><a href="/give/#give-online">Give Online</a><a href="/give/#give-mail">Give by Mail</a></div></div></div>
       </nav>
+      <div class="nav-m">
+        <a href="/give/" class="nav-give nav-give-m">Give</a>
+        <details class="mnav">
+          <summary aria-label="Menu"><span class="s-plus">☰</span><span class="s-minus">✕</span></summary>
+          <div class="mpanel">
+          <a href="/" class="m-top m-row">Home</a>
+          <details class="m-sec"><summary><a href="/about/" class="m-top">About</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/about/#story">Our Story</a><a href="/about/#board">Board of Directors</a><a href="/about/#partners">Our Partners</a></div></details>
+          <details class="m-sec"><summary><a href="/how-we-serve/" class="m-top">How We Serve</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/how-we-serve/#heart">Heart for the Poor</a><a href="/how-we-serve/#agriculture">Agriculture</a><a href="/how-we-serve/#medical">Medical</a><a href="/how-we-serve/#humanitarian">Humanitarian</a></div></details>
+          <details class="m-sec"><summary><a href="/get-involved/" class="m-top">Get Involved</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/get-involved/#pray">Pray With Us</a><a href="/get-involved/#snippets">Stay Connected</a><a href="/get-involved/#contact">Contact Us</a></div></details>
+          <a href="/give/" class="m-give" aria-current="page">Give</a><div class="m-give-sub"><a href="/give/#give-online">Give Online</a><a href="/give/#give-mail">Give by Mail</a></div>
+          </div>
+        </details>
+      </div>
     </div>
   </header>
-
-  <section style="background:#2b2b2b;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,84px) clamp(20px,4vw,32px)">
-      <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:44px;height:1px;background:#cca54f"></span>
-        <span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9;font-weight:600">Give</span>
+<section style="background:#2b2b2b;color:#f1ead8">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,60px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:space-between;align-items:flex-start">
+      <div style="flex:1 1 520px;min-width:0">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:1px;background:#cca54f"></span>
+          <span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9;font-weight:600">Give</span>
+        </div>
+        <h1 style="font-size:clamp(28px,3.8vw,44px);line-height:1.25;font-weight:300;max-width:900px;margin:24px 0 0">Your generosity helps meet real felt needs while opening doors for the Gospel</h1>
+        <p style="font-size:clamp(13px,1.3vw,15px);line-height:1.6;letter-spacing:0.05em;font-weight:500;margin:20px 0 0;color:#bcdce0">Meeting physical needs<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Building relationships<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Sharing Jesus<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Seeing lives transformed</p>
       </div>
-      <h1 style="font-family:Merriweather,Georgia,serif;font-size:clamp(30px,4.2vw,46px);line-height:1.25;font-weight:300;max-width:900px;margin:26px 0 0">Your generosity helps meet real felt needs while opening doors for the Gospel</h1>
+      <div style="flex:0 0 auto;display:flex;flex-direction:column;gap:14px;padding-top:4px">
+        <span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9;font-weight:600">Ways to give</span>
+        <a href="https://impact-west-africa-inc-544195.churchcenter.com/giving?open-in-church-center-modal=true" style="padding:15px 30px;background:#cca54f;color:#2b2b2b;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-align:center" class="h1">Give Online</a>
+        <a href="#give-mail" style="padding:15px 30px;border:1px solid rgba(241,234,216,0.55);color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-align:center" class="h2">Give by Mail</a>
+      </div>
     </div>
   </section>
 
-  <section style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
-    <div class="give-grid">
+  <section id="support" style="max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(20px,4vw,32px) clamp(20px,2.5vw,28px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
       <div>
-        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Why it matters</h2>
-        <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(22px,2.4vw,28px);line-height:1.55;font-weight:300;margin:22px 0 0">Your generosity helps Impact West Africa invest in people and communities through agricultural development, medical care, and the transforming hope of the Gospel</p>
-        <p style="font-size:16px;line-height:1.85;margin:24px 0 0;color:rgba(43,43,43,0.82)">Gifts of any size go directly into the work on the ground. You can give once or set up a recurring gift.</p>
-        <div style="position:relative;aspect-ratio:4/3;margin-top:34px">
-          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/give-harvest3.jpg" alt="A farmer with his harvest" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:1px;background:#cca54f"></span><h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Support IMPACT West Africa</h2></div>
+        <p style="font-size:clamp(20px,2.2vw,25px);line-height:1.55;font-weight:600;margin:24px 0 0">Your giving supports the ministry as a whole, helping advance Gospel transformation through agricultural development, medical care, and humanitarian efforts across Senegal and West Africa.</p>
+        <p style="font-size:16px;line-height:1.85;margin:24px 0 0;color:rgba(43,43,43,0.85)">IMPACT West Africa is supported entirely through the generous giving of churches and individuals who want to be part of what God is doing in West Africa. IMPACT West Africa, Inc. is a <strong style="font-weight:700;color:#2b2b2b">501(c)(3) nonprofit organization</strong> that supports the ministry of Tom and Suja Brane.</p>
+        <p style="font-size:clamp(18px,1.9vw,21px);line-height:1.5;font-weight:600;margin:30px 0 0;padding-left:22px;border-left:3px solid #cca54f;color:#a55229">When you give to IMPACT, you become part of this ministry.</p>
+      </div>
+      <div style="position:relative;aspect-ratio:4/3">
+        <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/give-wheelchair.jpg" alt="Suja Brane with a boy trying out a new adaptive trike" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ways" style="max-width:1180px;margin:0 auto;padding:clamp(20px,2.5vw,28px) clamp(20px,4vw,32px) clamp(32px,4vw,44px);scroll-margin-top:110px">
+    <div style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:1px;background:#cca54f"></span><h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Ways to Give</h2></div>
+    <div style="display:flex;flex-wrap:wrap;gap:28px;margin-top:clamp(28px,4vw,40px);align-items:flex-start">
+      <div id="give-online" style="flex:3 1 420px;min-width:0;background:#ffffff;border-top:3px solid #487a81;padding:clamp(28px,4vw,44px);scroll-margin-top:110px">
+        <h3 style="font-size:28px;font-weight:600">Online Giving</h3>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:14px">
+          <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;color:#f1ead8;background:#487a81;padding:6px 10px;border-radius:2px">Preferred</span>
+          <h4 style="margin:0;font-size:16px;font-weight:600;color:#487a81">ACH / Bank Account</h4>
+        </div>
+        <p style="font-size:15px;line-height:1.8;margin:18px 0 0;color:rgba(43,43,43,0.85)">We encourage giving through ACH / bank account when possible because it is a convenient way to give and allows more of your gift to go directly toward ministry.</p>
+        <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(43,43,43,0.85)">Online giving makes it easy to give one-time or recurring monthly gifts. You can securely give using your bank account (ACH), debit card, or credit card. Your gifts are tax-deductible.</p>
+        <a href="https://impact-west-africa-inc-544195.churchcenter.com/giving?open-in-church-center-modal=true" style="margin-top:26px;display:block;text-align:center;padding:18px 24px;background:#a55229;color:#f1ead8;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;border-radius:2px" class="h3">Give Now</a>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px">
+          <div>
+        <details class="acc"><summary style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#f1ead8;border:0;border-left:3px solid #487a81;padding:16px 18px;cursor:pointer;text-align:left;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b" class="h4"><span>Why Choose ACH?</span><span style="font-size:22px;font-weight:300;line-height:1;color:#a55229"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary>
+            
+              <div style="padding:18px 20px 22px;border-left:3px solid #487a81;background:#faf7ef">
+                <p style="font-size:15px;line-height:1.8;margin:0;color:rgba(43,43,43,0.85)">ACH is simply a way to give directly from your bank account instead of writing and mailing a check. You securely enter your bank account information, and your gift is automatically transferred to IMPACT West Africa according to the schedule you choose.</p>
+                <ul style="margin:16px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:10px">
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85)"><strong style="font-weight:700;color:#2b2b2b">Convenient</strong> — Your gift is sent automatically, making it easy to set up recurring monthly support.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85)"><strong style="font-weight:700;color:#2b2b2b">Consistent</strong> — Automatic giving helps you stay on track with your giving.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85)"><strong style="font-weight:700;color:#2b2b2b">Lower cost</strong> — ACH costs just $0.30 per transaction, allowing more of your gift to go directly toward ministry.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85)"><strong style="font-weight:700;color:#2b2b2b">Less administration</strong> — Online giving reduces the number of checks and cash contributions that must be received, recorded, deposited, and processed.</li>
+                </ul>
+                <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.85)">As a small, volunteer-led organization, reducing administrative work allows us to keep our U.S. operations lean and direct more of our resources toward ministry in West Africa.</p>
+              </div>
+            </details>
+          </div>
+          <div>
+        <details class="acc"><summary style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#f1ead8;border:0;border-left:3px solid #487a81;padding:16px 18px;cursor:pointer;text-align:left;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b" class="h4"><span>Need help?</span><span style="font-size:22px;font-weight:300;line-height:1;color:#a55229"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary>
+            
+              <div style="padding:18px 20px 22px;border-left:3px solid #487a81;background:#faf7ef">
+                <p style="font-size:15px;line-height:1.8;margin:0;color:rgba(43,43,43,0.85)">Here's how to give online:</p>
+                <ol style="margin:14px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">Click the <strong style="font-weight:700">Give Now</strong> button above. This opens our secure online giving page.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">Enter the amount you would like to give.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">Choose how often: one time, or a recurring schedule such as monthly, and pick a start date.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">Enter your email address or mobile number. You will receive a short code to confirm it’s you.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">Choose your payment method. For ACH, select <strong style="font-weight:700">Bank account</strong> and either connect your bank or enter your routing and account numbers. You can also use a debit or credit card.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">Review your gift and click <strong style="font-weight:700">Give</strong>. You’ll receive an email receipt.</li>
+              <li style="font-size:15px;line-height:1.75;color:rgba(43,43,43,0.85);padding-left:4px">To change or cancel a recurring gift later, return to the giving page and sign in with the same email or mobile number.</li>
+                </ol>
+                <p style="font-size:15px;line-height:1.8;margin:18px 0 0;color:rgba(43,43,43,0.85)">Still having trouble, no problem. Email us at: <a href="mailto:info@impactwestafrica.org" style="font-weight:600;border-bottom:1px solid rgba(165,82,41,0.4)">info@impactwestafrica.org</a></p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
+      <div id="give-mail" style="flex:2 1 280px;min-width:0;background:#ffffff;border-top:3px solid #cca54f;padding:clamp(28px,4vw,44px);scroll-margin-top:110px">
+        <h3 style="font-size:28px;font-weight:600">Give by mail</h3>
+        <div style="display:flex;flex-direction:column;gap:22px;margin-top:24px">
+          <div>
+            <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(43,43,43,0.6);font-weight:600">Make checks payable to</span>
+            <p style="font-size:16px;line-height:1.6;margin:8px 0 0;font-weight:600">Impact West Africa, Inc.</p>
+          </div>
+          <div>
+            <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(43,43,43,0.6);font-weight:600">Mail to</span>
+            <address style="font-style:normal;font-size:16px;line-height:1.6;margin:8px 0 0">IMPACT West Africa<br>P.O. Box 13<br>Ross, OH 45061</address>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="give-card" id="donate" style="background:#ffffff;border-top:3px solid #cca54f;padding:clamp(28px,4vw,44px)">
-        <h2 style="font-family:Merriweather,Georgia,serif;font-size:28px;font-weight:300">Give online</h2>
-        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.8)">Give once, or set up a recurring gift. Prefer your phone? Scan the code below.</p>
+  <section style="background:#ecd9b9;border-top:1px solid rgba(43,43,43,0.08);border-bottom:1px solid rgba(43,43,43,0.08)">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(28px,3.5vw,40px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      <div style="background:#ffffff;border-top:4px solid #487a81;padding:clamp(28px,4vw,44px)">
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Financial Accountability</h2>
+        <p style="font-size:16px;line-height:1.85;margin:20px 0 0;color:rgba(43,43,43,0.85)">IMPACT’s Board of Directors provides spiritual and organizational oversight and financial accountability. Board member Dennis McDaniel, a longtime elder at White Oak Christian Church, and his wife, Adele, are both CPAs and have faithfully overseen IMPACT’s bookkeeping since 2016.</p>
+        <a href="/about/#board" style="display:inline-block;margin-top:22px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;border-bottom:1px solid rgba(165,82,41,0.4);padding-bottom:4px">Meet our board</a>
+      </div>
+      <div style="background:#ffffff;border-top:4px solid #a55229;padding:clamp(28px,4vw,44px)">
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#a55229;font-weight:600">Why Give</h2>
+        <p style="font-size:16px;line-height:1.85;margin:20px 0 0;color:rgba(43,43,43,0.85)">We believe generosity is a response to God’s generosity toward us. Everything we have comes from Him, and because of all He has done for us through Christ, we want to live open-handed lives, giving freely and sacrificially so that others can know the love of Christ and experience the hope we have found in Him.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:clamp(32px,4vw,44px) clamp(20px,4vw,32px) clamp(28px,3.5vw,40px)">
+    <div style="background:#ffffff;border-top:3px solid #cca54f;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:stretch">
+      <div style="position:relative;min-height:260px">
+        <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2;position:absolute;inset:0;width:100%;height:100%"><img src="/assets/baobab.jpg" alt="A baobab tree on a small island in a Senegalese river" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+      <div style="padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;justify-content:center">
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Stay Connected</h2>
+        <p style="font-size:16px;line-height:1.85;margin:20px 0 0;color:rgba(43,43,43,0.85)">Giving is more than a financial transaction. It is an opportunity to participate in what God is doing in West Africa. We want to keep you connected through stories, prayer updates, and IMPACT Snippets so you can see how God is working through your partnership.</p>
         <div style="margin-top:26px">
-          <a href="https://impact-west-africa-inc-544195.churchcenter.com/giving?open-in-church-center-modal=true" style="display:block;text-align:center;padding:18px 28px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase" class="give-btn">Give online</a>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:30px;border-top:1px solid rgba(43,43,43,0.12);padding-top:26px">
-          <img src="/assets/give-qr.png" alt="QR code to give to IMPACT West Africa" style="width:132px;height:132px;background:#f1ead8;padding:8px;flex:none">
-          <p style="font-size:13px;line-height:1.7;margin:0;color:rgba(43,43,43,0.7);flex:1 1 140px">Secure giving through Planning Center.</p>
-        </div>
-        <p style="font-size:13px;line-height:1.7;margin:22px 0 0;color:rgba(43,43,43,0.65);border-top:1px solid rgba(43,43,43,0.12);padding-top:20px">IMPACT West Africa is a registered 501(c)(3) organization. All gifts are tax-deductible.</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#ffffff;border-top:1px solid rgba(43,43,43,0.08)">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
-      <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:44px;height:1px;background:#cca54f"></span>
-        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Where your gift goes</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:clamp(36px,5vw,52px)">
-        <div style="border-top:1px solid rgba(43,43,43,0.15);padding-top:24px">
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:21px;font-weight:400">Agricultural development</h3>
-          <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(43,43,43,0.78)">Seed, tools, and training that help farmers improve food security and steward what God has given them.</p>
-        </div>
-        <div style="border-top:1px solid rgba(43,43,43,0.15);padding-top:24px">
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:21px;font-weight:400">Medical ministry</h3>
-          <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(43,43,43,0.78)">Care at the rural clinic for patients who would otherwise go without, and the supplies that treatment requires.</p>
-        </div>
-        <div style="border-top:1px solid rgba(43,43,43,0.15);padding-top:24px">
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:21px;font-weight:400">Training and discipleship</h3>
-          <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(43,43,43,0.78)">Equipping farmers to train and teach in their own nations, so the work keeps growing beyond us.</p>
+          <a href="/get-involved/#snippets" style="display:inline-block;padding:16px 32px;background:#487a81;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase" class="h5">Stay Connected →</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <section style="background:#2b2b2b;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between">
-      <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(22px,2.6vw,30px);line-height:1.4;font-weight:300;margin:0;max-width:620px">Not able to give right now? Prayer carries the work just as far.</p>
-      <a href="/get-involved/" style="padding:16px 34px;border:1px solid rgba(241,234,216,0.5);color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase" class="h2">Pray With Us</a>
+    <div style="max-width:720px;margin:clamp(32px,4vw,44px) auto 0;text-align:center">
+      <span style="display:block;width:44px;height:2px;background:#cca54f;margin:0 auto"></span>
+      <p style="font-size:clamp(19px,2vw,23px);line-height:1.55;font-weight:500;margin:22px 0 0;color:#2b2b2b">Thank you for partnering with IMPACT West Africa and investing in what God is doing in West Africa.</p>
     </div>
   </section>
 
-  <footer style="background:#487a81;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,64px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start">
-      <div style="max-width:380px">
-        <img src="/assets/logo-light.png" alt="IMPACT — Impacting West Africa for Christ" style="height:56px;width:auto">
-        <p style="font-size:14px;line-height:1.8;margin:22px 0 0;color:rgba(241,234,216,0.8)">Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+  <footer style="background:#2b2b2b;color:#f1ead8;border-top:3px solid #cca54f">
+    <div style="max-width:960px;margin:0 auto;padding:clamp(32px,4vw,40px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-start">
+      <img src="/assets/badge-footer.png" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Explore</span>
         <a href="/" style="font-size:14px;color:#f1ead8">Home</a>
         <a href="/about/" style="font-size:14px;color:#f1ead8">About</a>
+        <a href="/how-we-serve/" style="font-size:14px;color:#f1ead8">How We Serve</a>
         <a href="/get-involved/" style="font-size:14px;color:#f1ead8">Get Involved</a>
         <a href="/give/" style="font-size:14px;color:#cca54f">Give</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Reach us</span>
         <a href="mailto:info@impactwestafrica.org" style="font-size:14px;color:#f1ead8">info@impactwestafrica.org</a>
         <a href="https://impact-west-africa.epistle.org/subscribe" style="font-size:14px;color:#f1ead8">Brane Family Snippets</a>
+        <address style="font-style:normal;font-size:14px;line-height:1.6;color:rgba(241,234,216,0.82);margin-top:6px">IMPACT West Africa<br>P.O. Box 13<br>Ross, OH 45061</address>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(241,234,216,0.2)">
-      <div style="max-width:1180px;margin:0 auto;padding:22px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12px;color:rgba(241,234,216,0.7)">
+    <div style="border-top:1px solid rgba(241,234,216,0.18)">
+      <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:11px;color:rgba(241,234,216,0.7)">
         <span>© 2026 IMPACT West Africa. A registered 501(c)(3) organization.</span>
         <span>All gifts are tax-deductible.</span>
       </div>

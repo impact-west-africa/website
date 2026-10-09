@@ -7,155 +7,199 @@
 <meta name="description" content="Pray with us, subscribe to Brane Family Snippets, or get in touch about partnering with the work in West Africa.">
 <link rel="canonical" href="https://impactwestafrica.org/get-involved/">
 <meta name="theme-color" content="#f1ead8">
-<link rel="icon" href="/assets/logo-dark.png">
-<link rel="apple-touch-icon" href="/assets/logo-dark.png">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/assets/icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IMPACT West Africa">
 <meta property="og:title" content="Get Involved — IMPACT West Africa">
 <meta property="og:description" content="Pray with us, subscribe to Brane Family Snippets, or get in touch about partnering with the work in West Africa.">
 <meta property="og:url" content="https://impactwestafrica.org/get-involved/">
-<meta property="og:image" content="https://impactwestafrica.org/assets/hero-field.jpg">
+<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #f1ead8; color: #2b2b2b; font-family: Montserrat, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #a55229; text-decoration: none; }
-  a:hover { color: #2b2b2b; }
-  img { display: block; max-width: 100%; }
-  input, textarea, button { font: inherit; color: inherit; }
-  h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: pretty; }
-  p { text-wrap: pretty; }
-  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.h1:hover{background:#2b2b2b!important;color:#f1ead8!important}
-.f2:focus{outline:none!important;border-color:#487a81!important}
-.h3:hover{background:#a55229!important}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f1ead8; color: #2b2b2b; font-family: Montserrat, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #a55229; text-decoration: none; }
+a:hover { color: #2b2b2b; }
+img { display: block; max-width: 100%; }
+input, textarea, button { font: inherit; color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; text-wrap: pretty; }
+p { text-wrap: pretty; }
+section { scroll-margin-top: 84px; }
+
+.site-head{position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)}
+.head-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.brand{display:flex;align-items:center;gap:12px;color:#2b2b2b}
+.brand img{height:clamp(52px,6vw,64px);width:auto}
+.nav-d{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(14px,2vw,26px)}
+.nav-m{display:none;align-items:center;gap:10px}
+.nav-top{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b}
+.nav-cur{font-weight:600;border-bottom:1px solid #cca54f;padding-bottom:3px}
+.nav-give{padding:11px 24px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase}
+.nav-give:hover{background:#2b2b2b;color:#f1ead8}
+.nav-item{position:relative;display:flex;align-items:center}
+.dd{position:absolute;top:100%;left:-18px;padding-top:14px;z-index:70;display:none}
+.dd-right{left:auto;right:0}
+.nav-item:hover>.dd,.nav-item:focus-within>.dd{display:block}
+.dd-in{background:#ffffff;border:1px solid rgba(43,43,43,0.12);box-shadow:0 12px 32px rgba(0,0,0,0.14);display:flex;flex-direction:column;padding:6px 0;min-width:230px}
+.dd-in a{padding:12px 18px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b;white-space:nowrap}
+.dd-in a:hover{background:#f1ead8;color:#a55229}
+.mnav>summary{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(43,43,43,0.2);border-radius:2px;cursor:pointer;font-size:20px;color:#2b2b2b;list-style:none}
+.mnav>summary::-webkit-details-marker{display:none}
+.mpanel{position:absolute;top:100%;left:0;right:0;background:#f1ead8;border-top:1px solid rgba(43,43,43,0.1);box-shadow:0 18px 30px rgba(0,0,0,0.12);max-height:calc(100vh - 80px);overflow-y:auto;padding:4px clamp(20px,4vw,32px) 28px;display:flex;flex-direction:column}
+.m-row,.m-sec{border-bottom:1px solid rgba(43,43,43,0.1)}
+.m-top{display:block;padding:16px 0;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b}
+.m-sec>summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none}
+.m-sec>summary::-webkit-details-marker{display:none}
+.m-sign{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;line-height:1;color:#a55229}
+.m-sub{display:flex;flex-direction:column;padding-bottom:10px}
+.m-sub a{display:block;padding:12px 0 12px 18px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#487a81}
+.m-give{margin-top:22px;display:block;text-align:center;padding:16px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase}
+.m-give:hover{background:#2b2b2b;color:#f1ead8}
+.m-give-sub{display:flex;justify-content:center;gap:28px;margin-top:14px}
+.m-give-sub a{padding:10px 0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#487a81}
+.s-minus{display:none}
+details[open]>summary .s-plus{display:none}
+details[open]>summary .s-minus{display:inline}
+@media (max-width:859px){.nav-d{display:none}.nav-m{display:flex}}
+
+.f1:focus{outline:none!important;border-color:#487a81!important}
+.h2:hover{background:#a55229!important}
 </style>
 </head>
 <body>
-<div style="width:100%;overflow-x:hidden">
+<div style="width:100%;overflow-x:hidden;overflow-x:clip">
 
-  <header style="position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)">
-    <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
-      <a href="/" style="display:flex;align-items:center;gap:12px;color:#2b2b2b">
-        <img src="/assets/logo-dark.png" alt="IMPACT — Impacting West Africa for Christ" style="height:46px;width:auto">
+<header class="site-head">
+    <div class="head-in">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
       </a>
-      <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(16px,2.4vw,30px)">
-        <a href="/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">Home</a>
-        <a href="/about/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">About</a>
-        <a href="/get-involved/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b;font-weight:600;border-bottom:1px solid #cca54f;padding-bottom:3px">Get Involved</a>
-        <a href="/give/" style="padding:11px 24px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase" class="h1">Give</a>
+      <nav class="nav-d" aria-label="Main">
+        <a href="/" class="nav-top">Home</a>
+        <div class="nav-item"><a href="/about/" class="nav-top">About</a><div class="dd"><div class="dd-in"><a href="/about/#story">Our Story</a><a href="/about/#board">Board of Directors</a><a href="/about/#partners">Our Partners</a></div></div></div>
+        <div class="nav-item"><a href="/how-we-serve/" class="nav-top">How We Serve</a><div class="dd"><div class="dd-in"><a href="/how-we-serve/#heart">Heart for the Poor</a><a href="/how-we-serve/#agriculture">Agriculture</a><a href="/how-we-serve/#medical">Medical</a><a href="/how-we-serve/#humanitarian">Humanitarian</a></div></div></div>
+        <div class="nav-item"><a href="/get-involved/" class="nav-top nav-cur" aria-current="page">Get Involved</a><div class="dd"><div class="dd-in"><a href="/get-involved/#pray">Pray With Us</a><a href="/get-involved/#snippets">Stay Connected</a><a href="/get-involved/#contact">Contact Us</a></div></div></div>
+        <div class="nav-item"><a href="/give/" class="nav-give">Give</a><div class="dd dd-right"><div class="dd-in"><a href="/give/#give-online">Give Online</a><a href="/give/#give-mail">Give by Mail</a></div></div></div>
       </nav>
+      <div class="nav-m">
+        <a href="/give/" class="nav-give nav-give-m">Give</a>
+        <details class="mnav">
+          <summary aria-label="Menu"><span class="s-plus">☰</span><span class="s-minus">✕</span></summary>
+          <div class="mpanel">
+          <a href="/" class="m-top m-row">Home</a>
+          <details class="m-sec"><summary><a href="/about/" class="m-top">About</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/about/#story">Our Story</a><a href="/about/#board">Board of Directors</a><a href="/about/#partners">Our Partners</a></div></details>
+          <details class="m-sec"><summary><a href="/how-we-serve/" class="m-top">How We Serve</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/how-we-serve/#heart">Heart for the Poor</a><a href="/how-we-serve/#agriculture">Agriculture</a><a href="/how-we-serve/#medical">Medical</a><a href="/how-we-serve/#humanitarian">Humanitarian</a></div></details>
+          <details class="m-sec"><summary><a href="/get-involved/" class="m-top" aria-current="page">Get Involved</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/get-involved/#pray">Pray With Us</a><a href="/get-involved/#snippets">Stay Connected</a><a href="/get-involved/#contact">Contact Us</a></div></details>
+          <a href="/give/" class="m-give">Give</a><div class="m-give-sub"><a href="/give/#give-online">Give Online</a><a href="/give/#give-mail">Give by Mail</a></div>
+          </div>
+        </details>
+      </div>
     </div>
   </header>
-
-  <section style="background:#2b2b2b;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,84px) clamp(20px,4vw,32px)">
-      <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:44px;height:1px;background:#cca54f"></span>
-        <span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9;font-weight:600">Get involved</span>
-      </div>
-      <h1 style="font-family:Merriweather,Georgia,serif;font-size:clamp(30px,4.2vw,46px);line-height:1.25;font-weight:300;max-width:900px;margin:26px 0 0">Ways to stand with the work in West Africa.</h1>
-      <div style="display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:34px">
-        <a href="#pray" style="font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#cca54f;border-bottom:1px solid rgba(204,165,79,0.4);padding-bottom:4px">Pray</a>
-        <a href="#snippets" style="font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#cca54f;border-bottom:1px solid rgba(204,165,79,0.4);padding-bottom:4px">Stay connected</a>
-        <a href="#contact" style="font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#cca54f;border-bottom:1px solid rgba(204,165,79,0.4);padding-bottom:4px">Contact us</a>
+<section style="background:#2b2b2b;color:#f1ead8">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,60px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-start;justify-content:space-between">
+      <div style="flex:1 1 520px;min-width:0">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:1px;background:#cca54f"></span>
+          <span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9;font-weight:600">Get involved</span>
+        </div>
+        <h1 style="font-size:clamp(28px,3.8vw,44px);line-height:1.25;font-weight:300;max-width:900px;margin:24px 0 0">Ways to stand with the work in West Africa.</h1>
+        <p style="font-size:clamp(13px,1.3vw,15px);line-height:1.6;letter-spacing:0.05em;font-weight:500;margin:20px 0 0;color:#bcdce0">Meeting physical needs<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Building relationships<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Sharing Jesus<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Seeing lives transformed</p>
       </div>
     </div>
   </section>
 
-  <section id="pray" style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) clamp(40px,5vw,60px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,4vw,64px);align-items:center">
+  <section id="pray" style="scroll-margin-top:110px;max-width:1180px;margin:0 auto;padding:clamp(32px,4vw,48px) clamp(20px,4vw,32px) clamp(24px,3vw,36px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,3.5vw,52px);align-items:center">
       <div style="position:relative;aspect-ratio:4/3">
-        <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/pray-med-b.jpg" alt="Praying with a patient at the clinic" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/pray-bible.jpg" alt="Suja Brane reading the Bible with a mother and her children" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
       </div>
       <div>
-        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">01 — Pray</h2>
-        <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(25px,3vw,34px);line-height:1.4;font-weight:300;margin:22px 0 0">Pray with us.</p>
-        <p style="font-size:16px;line-height:1.85;margin:24px 0 0;color:rgba(43,43,43,0.82)">Pray for open doors among the unreached, for good harvests, for the patients in our clinic, and for the local believers being equipped to teach and train in their own nations.</p>
-        <p style="font-size:16px;line-height:1.85;margin:18px 0 0;color:rgba(43,43,43,0.82)">Never underestimate the impact your prayers have on the work God is doing. We truly depend on them. Specific requests go out with each epistle.</p>
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Pray</h2>
+        <p style="font-size:clamp(25px,3vw,34px);line-height:1.4;font-weight:600;margin:14px 0 0">Pray with Us</p>
+        <p style="font-size:16px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.82)">We believe prayer is an essential part of the work God is doing in West Africa. We ask Him to open doors among the unreached, provide good harvests, bring healing to patients in our clinic, and equip local believers to teach and train others in their own nations.</p>
+        <p style="font-size:16px;line-height:1.8;margin:12px 0 0;color:rgba(43,43,43,0.82)">We cannot do this work without your prayers. Thank you for praying with us for the people we serve, the local believers we partner with, and the opportunities God gives us to share the hope of Christ.</p>
+        <p style="font-size:16px;line-height:1.8;margin:12px 0 0;color:rgba(43,43,43,0.82)">To receive specific prayer requests and hear how God is answering them, sign up for our <a href="#snippets" style="font-weight:600;border-bottom:1px solid rgba(165,82,41,0.4)">Brane Family Snippets</a> below. We would love to have you join us in praying for West Africa.</p>
       </div>
     </div>
   </section>
 
-  <section id="snippets" style="background:#ecd9b9;border-top:1px solid rgba(43,43,43,0.1);border-bottom:1px solid rgba(43,43,43,0.1)">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+  <section id="snippets" style="scroll-margin-top:110px;background:#f1ead8">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(28px,3.5vw,44px) clamp(20px,4vw,32px)">
       <div>
         <div style="max-width:760px">
-          <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">02 — Stay connected</h2>
-          <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(25px,3vw,34px);line-height:1.4;font-weight:300;margin:22px 0 0">Brane Family Snippets</p>
-          <p style="font-size:16px;line-height:1.85;margin:24px 0 0;color:rgba(43,43,43,0.82)">Our bimonthly epistle: field updates, stories from the farm and the clinic, and prayer points you can carry with you.</p>
+          <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Stay connected</h2>
+          <p style="font-size:clamp(25px,3vw,34px);line-height:1.4;font-weight:600;margin:14px 0 0">Brane Family Snippets</p>
+          <p style="font-size:16px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.82)">Our bimonthly epistle: field updates, stories from the farm and the clinic, and prayer points you can carry with you.</p>
         </div>
-        <div style="margin-top:32px;background:#ffffff;padding:8px">
-          <iframe src="https://impact-west-africa.epistle.org/subscribe" title="Subscribe to Brane Family Snippets" scrolling="no" style="width:100%;height:1100px;border:0;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:center;gap:20px;margin-top:26px">
-          <img src="/assets/snippets-qr.png" alt="QR code to sign up for Brane Family Snippets" style="width:92px;height:92px;background:#ffffff;padding:6px;flex:none">
-          <p style="font-size:14px;line-height:1.7;margin:0;color:rgba(43,43,43,0.75)">Form not loading? Scan the code, or <a href="https://impact-west-africa.epistle.org/subscribe" target="_blank" rel="noopener" style="border-bottom:1px solid rgba(165,82,41,0.4)">sign up here</a>.</p>
+        <div style="margin-top:22px;background:#ffffff;padding:8px">
+          <iframe src="https://impact-west-africa.epistle.org/subscribe" title="Subscribe to Brane Family Snippets" scrolling="no" style="width:100%;height:935px;border:0;display:block" loading="lazy"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) clamp(72px,9vw,120px)">
+  <section id="contact" style="scroll-margin-top:110px;max-width:1180px;margin:0 auto;padding:clamp(28px,3.5vw,44px) clamp(20px,4vw,32px) clamp(36px,4.5vw,56px)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(36px,5vw,80px);align-items:start">
       <div>
-        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">03 — Contact us</h2>
-        <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(24px,2.8vw,32px);line-height:1.4;font-weight:300;margin:22px 0 0">We'd love to hear from you.</p>
-        <p style="font-size:16px;line-height:1.85;margin:22px 0 0;color:rgba(43,43,43,0.82)">Questions about the ministry, partnering as a church, or having us come share with your congregation — send a note and we'll reply.</p>
-        <a href="mailto:info@impactwestafrica.org" style="display:inline-block;margin-top:24px;font-size:15px;border-bottom:1px solid rgba(165,82,41,0.4);padding-bottom:3px">info@impactwestafrica.org</a>
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Contact us</h2>
+        <p style="font-size:clamp(24px,2.8vw,32px);line-height:1.4;font-weight:600;margin:14px 0 0">We'd love to hear from you.</p>
+        <p style="font-size:16px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.82)">Questions about the ministry, partnering as a church, or having us come share with your congregation — send a note and we'll reply.</p>
+        <a href="mailto:info@impactwestafrica.org" style="display:inline-block;margin-top:16px;font-size:15px;border-bottom:1px solid rgba(165,82,41,0.4);padding-bottom:3px">info@impactwestafrica.org</a>
       </div>
 
       <div id="contact-sent" hidden>
         <div style="background:#ffffff;border-top:3px solid #487a81;padding:56px 44px">
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:26px;font-weight:300">Thank you — your message is on its way.</h3>
+          <h3 style="font-size:26px;font-weight:600">Thank you — your message is on its way.</h3>
           <p style="font-size:16px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.78)">Someone from the team will get back to you soon.</p>
         </div>
       </div>
       
-        <form id="contact-form" action="https://formspree.io/f/mnpqloqd" method="POST" style="background:#ffffff;padding:clamp(26px,4vw,44px);display:grid;gap:24px"><input type="hidden" name="_subject" value="New message from impactwestafrica.org"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <form id="contact-form" action="https://formspree.io/f/mnpqloqd" method="POST" style="background:#ffffff;padding:clamp(24px,3.5vw,36px);display:grid;gap:18px"><input type="hidden" name="_subject" value="New message from impactwestafrica.org"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
           <label style="display:grid;gap:10px">
             <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(43,43,43,0.6)">Name</span>
-            <input type="text" name="name" required style="padding:14px 16px;border:1px solid rgba(43,43,43,0.2);border-radius:2px;background:#faf7ef;font-size:16px" class="f2">
+            <input type="text" name="name" required style="padding:14px 16px;border:1px solid rgba(43,43,43,0.2);border-radius:2px;background:#faf7ef;font-size:16px" class="f1">
           </label>
           <label style="display:grid;gap:10px">
             <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(43,43,43,0.6)">Email</span>
-            <input type="email" name="email" required style="padding:14px 16px;border:1px solid rgba(43,43,43,0.2);border-radius:2px;background:#faf7ef;font-size:16px" class="f2">
+            <input type="email" name="email" required style="padding:14px 16px;border:1px solid rgba(43,43,43,0.2);border-radius:2px;background:#faf7ef;font-size:16px" class="f1">
           </label>
           <label style="display:grid;gap:10px">
             <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(43,43,43,0.6)">Message</span>
-            <textarea name="message" rows="5" required style="padding:14px 16px;border:1px solid rgba(43,43,43,0.2);border-radius:2px;background:#faf7ef;font-size:16px;resize:vertical;font-family:Montserrat,Helvetica,Arial,sans-serif" class="f2"></textarea>
+            <textarea name="message" rows="5" required style="padding:14px 16px;border:1px solid rgba(43,43,43,0.2);border-radius:2px;background:#faf7ef;font-size:16px;resize:vertical;font-family:Montserrat,Helvetica,Arial,sans-serif" class="f1"></textarea>
           </label>
-          <button type="submit" style="padding:17px 24px;background:#2b2b2b;color:#f1ead8;border:none;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer" class="h3">Send Message</button>
+          <button type="submit" style="padding:17px 24px;background:#2b2b2b;color:#f1ead8;border:none;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer" class="h2">Send Message</button>
         </form>
       
     </div>
   </section>
 
-  <footer style="background:#487a81;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,64px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start">
-      <div style="max-width:380px">
-        <img src="/assets/logo-light.png" alt="IMPACT — Impacting West Africa for Christ" style="height:56px;width:auto">
-        <p style="font-size:14px;line-height:1.8;margin:22px 0 0;color:rgba(241,234,216,0.8)">Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+  <footer style="background:#2b2b2b;color:#f1ead8">
+    <div style="max-width:960px;margin:0 auto;padding:clamp(32px,4vw,40px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-start">
+      <img src="/assets/badge-footer.png" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Explore</span>
         <a href="/" style="font-size:14px;color:#f1ead8">Home</a>
         <a href="/about/" style="font-size:14px;color:#f1ead8">About</a>
+        <a href="/how-we-serve/" style="font-size:14px;color:#f1ead8">How We Serve</a>
         <a href="/get-involved/" style="font-size:14px;color:#f1ead8">Get Involved</a>
         <a href="/give/" style="font-size:14px;color:#cca54f">Give</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Reach us</span>
         <a href="mailto:info@impactwestafrica.org" style="font-size:14px;color:#f1ead8">info@impactwestafrica.org</a>
         <a href="https://impact-west-africa.epistle.org/subscribe" style="font-size:14px;color:#f1ead8">Brane Family Snippets</a>
+        <address style="font-style:normal;font-size:14px;line-height:1.6;color:rgba(241,234,216,0.82);margin-top:6px">IMPACT West Africa<br>P.O. Box 13<br>Ross, OH 45061</address>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(241,234,216,0.2)">
-      <div style="max-width:1180px;margin:0 auto;padding:22px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12px;color:rgba(241,234,216,0.7)">
+    <div style="border-top:1px solid rgba(241,234,216,0.18)">
+      <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:11px;color:rgba(241,234,216,0.7)">
         <span>© 2026 IMPACT West Africa. A registered 501(c)(3) organization.</span>
         <span>All gifts are tax-deductible.</span>
       </div>

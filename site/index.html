@@ -7,187 +7,335 @@
 <meta name="description" content="Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.">
 <link rel="canonical" href="https://impactwestafrica.org/">
 <meta name="theme-color" content="#f1ead8">
-<link rel="icon" href="/assets/logo-dark.png">
-<link rel="apple-touch-icon" href="/assets/logo-dark.png">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/assets/icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IMPACT West Africa">
 <meta property="og:title" content="IMPACT West Africa">
 <meta property="og:description" content="Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.">
 <meta property="og:url" content="https://impactwestafrica.org/">
-<meta property="og:image" content="https://impactwestafrica.org/assets/hero-field.jpg">
+<meta property="og:image" content="https://impactwestafrica.org/assets/hero-training.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #f1ead8; color: #2b2b2b; font-family: Montserrat, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #a55229; text-decoration: none; }
-  a:hover { color: #2b2b2b; }
-  img { display: block; max-width: 100%; }
-  input, textarea, button { font: inherit; color: inherit; }
-  h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: pretty; }
-  p { text-wrap: pretty; }
-  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.h1:hover{background:#2b2b2b!important;color:#f1ead8!important}
-.h2:hover{background:#f1ead8!important}
-.h3:hover{border-color:#cca54f!important;color:#cca54f!important}
-.h4:hover{transform:translateY(-4px)!important}
-.h5:hover{border-color:#cca54f!important}
-.h6:hover{background:rgba(204,165,79,0.16)!important}
-.give-btn:hover{background:#8f4623!important}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f1ead8; color: #2b2b2b; font-family: Montserrat, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #a55229; text-decoration: none; }
+a:hover { color: #2b2b2b; }
+img { display: block; max-width: 100%; }
+input, textarea, button { font: inherit; color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; text-wrap: pretty; }
+p { text-wrap: pretty; }
+section { scroll-margin-top: 84px; }
+
+.site-head{position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)}
+.head-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.brand{display:flex;align-items:center;gap:12px;color:#2b2b2b}
+.brand img{height:clamp(52px,6vw,64px);width:auto}
+.nav-d{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(14px,2vw,26px)}
+.nav-m{display:none;align-items:center;gap:10px}
+.nav-top{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b}
+.nav-cur{font-weight:600;border-bottom:1px solid #cca54f;padding-bottom:3px}
+.nav-give{padding:11px 24px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase}
+.nav-give:hover{background:#2b2b2b;color:#f1ead8}
+.nav-item{position:relative;display:flex;align-items:center}
+.dd{position:absolute;top:100%;left:-18px;padding-top:14px;z-index:70;display:none}
+.dd-right{left:auto;right:0}
+.nav-item:hover>.dd,.nav-item:focus-within>.dd{display:block}
+.dd-in{background:#ffffff;border:1px solid rgba(43,43,43,0.12);box-shadow:0 12px 32px rgba(0,0,0,0.14);display:flex;flex-direction:column;padding:6px 0;min-width:230px}
+.dd-in a{padding:12px 18px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b;white-space:nowrap}
+.dd-in a:hover{background:#f1ead8;color:#a55229}
+.mnav>summary{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(43,43,43,0.2);border-radius:2px;cursor:pointer;font-size:20px;color:#2b2b2b;list-style:none}
+.mnav>summary::-webkit-details-marker{display:none}
+.mpanel{position:absolute;top:100%;left:0;right:0;background:#f1ead8;border-top:1px solid rgba(43,43,43,0.1);box-shadow:0 18px 30px rgba(0,0,0,0.12);max-height:calc(100vh - 80px);overflow-y:auto;padding:4px clamp(20px,4vw,32px) 28px;display:flex;flex-direction:column}
+.m-row,.m-sec{border-bottom:1px solid rgba(43,43,43,0.1)}
+.m-top{display:block;padding:16px 0;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b}
+.m-sec>summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none}
+.m-sec>summary::-webkit-details-marker{display:none}
+.m-sign{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;line-height:1;color:#a55229}
+.m-sub{display:flex;flex-direction:column;padding-bottom:10px}
+.m-sub a{display:block;padding:12px 0 12px 18px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#487a81}
+.m-give{margin-top:22px;display:block;text-align:center;padding:16px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase}
+.m-give:hover{background:#2b2b2b;color:#f1ead8}
+.m-give-sub{display:flex;justify-content:center;gap:28px;margin-top:14px}
+.m-give-sub a{padding:10px 0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#487a81}
+.s-minus{display:none}
+details[open]>summary .s-plus{display:none}
+details[open]>summary .s-minus{display:inline}
+@media (max-width:859px){.nav-d{display:none}.nav-m{display:flex}}
+
+.hero{position:relative;background:#2b2b2b;overflow:hidden}
+.hero-stage{position:relative;width:100%;aspect-ratio:16/9;max-height:74vh;min-height:320px}
+.hero-r{position:absolute;width:1px;height:1px;opacity:0;margin:0;pointer-events:none}
+.hs{position:absolute;inset:0;opacity:0;animation:heroFade 32s linear infinite}
+.hs img{width:100%;height:100%;object-fit:cover}
+.hero-dots{position:absolute;bottom:18px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:10px}
+.hero-dots label{width:9px;height:9px;border-radius:50%;cursor:pointer;background:rgba(241,234,216,0.5);animation:dotFade 32s linear infinite}
+@keyframes heroFade{0%,100%{opacity:0}3%,12.5%{opacity:1}15.5%{opacity:0}}
+@keyframes dotFade{0%,100%{background:rgba(241,234,216,0.5)}3%,12.5%{background:#cca54f}15.5%{background:rgba(241,234,216,0.5)}}
+.hero-stage:has(.hero-r:checked) .hs{animation:none;opacity:0;transition:opacity 1.1s ease-in-out}
+.hero-stage:has(.hero-r:checked) .hero-dots label{animation:none;background:rgba(241,234,216,0.5)}
+@media (prefers-reduced-motion:reduce){.hs{animation:none;opacity:0}#hs1{opacity:1}.hero-dots label{animation:none}#h1:not(:checked)~.hero-dots label:nth-child(1){background:#cca54f}}
+
+.hs:nth-of-type(1),.hero-dots label:nth-child(1){animation-delay:-33s}
+#h1:checked~#hs1{opacity:1}
+#h1:checked~.hero-dots label:nth-child(1){background:#cca54f}
+#h1:focus-visible~.hero-dots label:nth-child(1){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(2),.hero-dots label:nth-child(2){animation-delay:-29s}
+#h2:checked~#hs2{opacity:1}
+#h2:checked~.hero-dots label:nth-child(2){background:#cca54f}
+#h2:focus-visible~.hero-dots label:nth-child(2){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(3),.hero-dots label:nth-child(3){animation-delay:-25s}
+#h3:checked~#hs3{opacity:1}
+#h3:checked~.hero-dots label:nth-child(3){background:#cca54f}
+#h3:focus-visible~.hero-dots label:nth-child(3){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(4),.hero-dots label:nth-child(4){animation-delay:-21s}
+#h4:checked~#hs4{opacity:1}
+#h4:checked~.hero-dots label:nth-child(4){background:#cca54f}
+#h4:focus-visible~.hero-dots label:nth-child(4){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(5),.hero-dots label:nth-child(5){animation-delay:-17s}
+#h5:checked~#hs5{opacity:1}
+#h5:checked~.hero-dots label:nth-child(5){background:#cca54f}
+#h5:focus-visible~.hero-dots label:nth-child(5){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(6),.hero-dots label:nth-child(6){animation-delay:-13s}
+#h6:checked~#hs6{opacity:1}
+#h6:checked~.hero-dots label:nth-child(6){background:#cca54f}
+#h6:focus-visible~.hero-dots label:nth-child(6){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(7),.hero-dots label:nth-child(7){animation-delay:-9s}
+#h7:checked~#hs7{opacity:1}
+#h7:checked~.hero-dots label:nth-child(7){background:#cca54f}
+#h7:focus-visible~.hero-dots label:nth-child(7){outline:2px solid #f1ead8;outline-offset:3px}
+.hs:nth-of-type(8),.hero-dots label:nth-child(8){animation-delay:-5s}
+#h8:checked~#hs8{opacity:1}
+#h8:checked~.hero-dots label:nth-child(8){background:#cca54f}
+#h8:focus-visible~.hero-dots label:nth-child(8){outline:2px solid #f1ead8;outline-offset:3px}
+.h1:hover{transform:translateY(-4px)!important;box-shadow:0 10px 26px rgba(43,43,43,0.12)!important;color:#2b2b2b!important}
+.h2:hover{transform:translateY(-3px)!important;box-shadow:0 10px 24px rgba(0,0,0,0.12)!important}
 </style>
-<script src="https://js.churchcenter.com/modal/v1" defer></script>
 </head>
 <body>
-<div style="width:100%;overflow-x:hidden">
+<div style="width:100%;overflow-x:hidden;overflow-x:clip">
 
-  <header style="position:sticky;top:0;z-index:50;background:rgba(241,234,216,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(43,43,43,0.1)">
-    <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
-      <a href="/" style="display:flex;align-items:center;gap:12px;color:#2b2b2b">
-        <img src="/assets/logo-dark.png" alt="IMPACT — Impacting West Africa for Christ" style="height:46px;width:auto">
+<header class="site-head">
+    <div class="head-in">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
       </a>
-      <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(16px,2.4vw,30px)">
-        <a href="/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b;font-weight:600;border-bottom:1px solid #cca54f;padding-bottom:3px">Home</a>
-        <a href="/about/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">About</a>
-        <a href="/get-involved/" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2b2b2b">Get Involved</a>
-        <a href="/give/" style="padding:11px 24px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase" class="h1">Give</a>
+      <nav class="nav-d" aria-label="Main">
+        <a href="/" class="nav-top nav-cur" aria-current="page">Home</a>
+        <div class="nav-item"><a href="/about/" class="nav-top">About</a><div class="dd"><div class="dd-in"><a href="/about/#story">Our Story</a><a href="/about/#board">Board of Directors</a><a href="/about/#partners">Our Partners</a></div></div></div>
+        <div class="nav-item"><a href="/how-we-serve/" class="nav-top">How We Serve</a><div class="dd"><div class="dd-in"><a href="/how-we-serve/#heart">Heart for the Poor</a><a href="/how-we-serve/#agriculture">Agriculture</a><a href="/how-we-serve/#medical">Medical</a><a href="/how-we-serve/#humanitarian">Humanitarian</a></div></div></div>
+        <div class="nav-item"><a href="/get-involved/" class="nav-top">Get Involved</a><div class="dd"><div class="dd-in"><a href="/get-involved/#pray">Pray With Us</a><a href="/get-involved/#snippets">Stay Connected</a><a href="/get-involved/#contact">Contact Us</a></div></div></div>
+        <div class="nav-item"><a href="/give/" class="nav-give">Give</a><div class="dd dd-right"><div class="dd-in"><a href="/give/#give-online">Give Online</a><a href="/give/#give-mail">Give by Mail</a></div></div></div>
       </nav>
+      <div class="nav-m">
+        <a href="/give/" class="nav-give nav-give-m">Give</a>
+        <details class="mnav">
+          <summary aria-label="Menu"><span class="s-plus">☰</span><span class="s-minus">✕</span></summary>
+          <div class="mpanel">
+          <a href="/" class="m-top m-row" aria-current="page">Home</a>
+          <details class="m-sec"><summary><a href="/about/" class="m-top">About</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/about/#story">Our Story</a><a href="/about/#board">Board of Directors</a><a href="/about/#partners">Our Partners</a></div></details>
+          <details class="m-sec"><summary><a href="/how-we-serve/" class="m-top">How We Serve</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/how-we-serve/#heart">Heart for the Poor</a><a href="/how-we-serve/#agriculture">Agriculture</a><a href="/how-we-serve/#medical">Medical</a><a href="/how-we-serve/#humanitarian">Humanitarian</a></div></details>
+          <details class="m-sec"><summary><a href="/get-involved/" class="m-top">Get Involved</a><span class="m-sign"><span class="s-plus">+</span><span class="s-minus">−</span></span></summary><div class="m-sub"><a href="/get-involved/#pray">Pray With Us</a><a href="/get-involved/#snippets">Stay Connected</a><a href="/get-involved/#contact">Contact Us</a></div></details>
+          <a href="/give/" class="m-give">Give</a><div class="m-give-sub"><a href="/give/#give-online">Give Online</a><a href="/give/#give-mail">Give by Mail</a></div>
+          </div>
+        </details>
+      </div>
     </div>
   </header>
-
-  <section style="position:relative;min-height:min(640px,86vh);display:flex;align-items:flex-end;background:#2b2b2b;overflow:hidden">
-    <div style="position:absolute;inset:0">
-      <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/hero-field.jpg" alt="Farmland at the Beersheba Development Farm in Senegal" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+<section class="hero">
+    <div class="hero-stage">
+      <input class="hero-r" type="radio" name="hero" id="h1" aria-label="Show photo 1">
+      <input class="hero-r" type="radio" name="hero" id="h2" aria-label="Show photo 2">
+      <input class="hero-r" type="radio" name="hero" id="h3" aria-label="Show photo 3">
+      <input class="hero-r" type="radio" name="hero" id="h4" aria-label="Show photo 4">
+      <input class="hero-r" type="radio" name="hero" id="h5" aria-label="Show photo 5">
+      <input class="hero-r" type="radio" name="hero" id="h6" aria-label="Show photo 6">
+      <input class="hero-r" type="radio" name="hero" id="h7" aria-label="Show photo 7">
+      <input class="hero-r" type="radio" name="hero" id="h8" aria-label="Show photo 8">
+      <div class="hs" id="hs1"><img src="/assets/hero-training.jpg" alt="Tom Brane pouring water over soil to demonstrate runoff at an outdoor farming training" loading="eager" fetchpriority="high" decoding="async"></div>
+      <div class="hs" id="hs2"><img src="/assets/hero-children.jpg" alt="A group of smiling children in a Senegalese village" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs3"><img src="/assets/hero-maize.jpg" alt="A farmer standing with his arms raised in a tall field of maize" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs4"><img src="/assets/hero-baptism.jpg" alt="A woman being baptized while the congregation looks on" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs5"><img src="/assets/hero-clinic.jpg" alt="Suja Brane listening to a young child&#x27;s chest with a stethoscope" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs6"><img src="/assets/hero-prayer.jpg" alt="Farmers kneeling in a circle to pray at the edge of a field" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs7"><img src="/assets/hero-brace.jpg" alt="Suja Brane fitting a leg brace for a young man in a wheelchair" loading="lazy" decoding="async"></div>
+      <div class="hs" id="hs8"><img src="/assets/hero-visit.jpg" alt="Children and a visitor playing with a ball beside a child lying on a mat" loading="lazy" decoding="async"></div>
+      <div class="hero-dots"><label for="h1"></label><label for="h2"></label><label for="h3"></label><label for="h4"></label><label for="h5"></label><label for="h6"></label><label for="h7"></label><label for="h8"></label></div>
     </div>
-    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0.66) 45%, rgba(20,20,20,0.6) 100%);pointer-events:none"></div>
-    <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,88px);width:100%;pointer-events:none">
-      <div style="max-width:840px;animation:riseIn 0.9s ease both">
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
-          <span style="width:44px;height:1px;background:#cca54f"></span>
-          <span style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9">A 501(c)(3) mission</span>
-        </div>
-        <h1 style="font-family:Merriweather,Georgia,serif;font-size:clamp(30px,4.6vw,52px);line-height:1.22;color:#f1ead8;font-weight:300">Spiritually <em style="font-style:normal;color:#cca54f">IMPACT</em>ing the unreached in West Africa through agricultural development, medical care, and gospel transformation.</h1>
-        <div style="display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;pointer-events:auto">
-          <a href="/give/" style="padding:16px 36px;background:#cca54f;color:#2b2b2b;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase" class="h2">Give Now</a>
-          <a href="/get-involved/" style="padding:16px 36px;border:1px solid rgba(241,234,216,0.5);color:#f1ead8;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase" class="h3">Partner With Us</a>
-        </div>
-      </div>
+  </section>
+<section style="background:#487a81;color:#f1ead8">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(20px,4vw,32px);text-align:center">
+      <p style="font-size:clamp(18px,2.3vw,28px);line-height:1.5;font-weight:300;margin:0;text-wrap:balance">Spiritually <em style="font-style:normal;font-weight:700;color:#cca54f">IMPACT</em>ing the unreached in West Africa through Agricultural Development, Medical Care, and Gospel Transformation.</p>
+      <p style="font-size:clamp(14px,1.6vw,17px);line-height:1.6;font-weight:500;letter-spacing:0.02em;margin:24px 0 0;color:#bcdce0">Meeting physical needs<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Building relationships<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Sharing Jesus<span style="display:inline-block;width:0.42em;height:0.42em;border-radius:50%;background:#cca54f;vertical-align:middle;margin:0 0.75em;position:relative;top:-0.08em"></span>Seeing lives transformed</p>
+      <p style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;margin:26px 0 0;color:rgba(241,234,216,0.7)">A 501(c)(3) mission</p>
     </div>
   </section>
 
-  <section style="max-width:1180px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(20px,4vw,32px) clamp(56px,7vw,90px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,80px);align-items:start">
+  <section style="max-width:1180px;margin:0 auto;padding:clamp(40px,5.5vw,68px) clamp(20px,4vw,32px) clamp(40px,6vw,70px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,72px);align-items:start">
       <div>
         <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Why we exist</h2>
         <span style="display:block;width:44px;height:1px;background:#cca54f;margin-top:18px"></span>
         <div style="position:relative;aspect-ratio:4/3;margin-top:32px">
-          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/portrait-bw.jpg" alt="Portrait of a woman in West Africa" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/portrait-bw.jpg" alt="Black and white portrait of children in a Senegalese village" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
         </div>
+        <div style="margin-top:28px;display:flex;justify-content:center;padding-left:clamp(40px,12vw,80px)">
+          <div style="position:relative;width:55%;max-width:300px">
+            <img src="/assets/map-africa.jpg" alt="Physical map of Africa showing Senegal in West Africa" style="width:100%;height:auto;display:block">
+            <span style="position:absolute;left:6%;top:28.6%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #a55229;border-radius:50%;pointer-events:none"></span>
+            <div style="position:absolute;right:100%;top:28.6%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;margin-right:-6%;pointer-events:none">
+              <span style="font-size:clamp(10px,2.8vw,13px);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#a55229;white-space:nowrap">Senegal</span>
+              <span style="display:block;width:clamp(12px,4vw,26px);height:2px;background:#a55229"></span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:10px;margin:8px 0 0;text-align:center;color:rgba(43,43,43,0.55)">Map: <a href="https://mapswire.com/maps/africa/" target="_blank" rel="noopener" style="color:rgba(43,43,43,0.55)">mapswire.com</a> (CC BY)</p>
       </div>
       <div>
-        <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(21px,2.2vw,26px);line-height:1.6;font-weight:300;margin:0">Our mission is to point people to the hope found in Jesus Christ.</p>
-        <p style="font-size:16px;line-height:1.85;margin:28px 0 0;color:rgba(43,43,43,0.82)">Imagine living your entire life without ever hearing the gospel explained in a way you could understand. For millions of people across West Africa, that is still reality. In Senegal, where we serve, more than 95% of the population is Muslim — deeply spiritual people who recognize their own sinfulness and their need for forgiveness. Jesus is respected as a prophet, but most have never heard the biblical message of His death and resurrection, and the salvation He offers through faith in Him.</p>
-        <blockquote style="margin:34px 0 0;padding-left:26px;border-left:2px solid #cca54f;font-family:Merriweather,Georgia,serif;font-size:18px;line-height:1.75;font-style:italic;font-weight:300;color:rgba(43,43,43,0.9)">"And how can they believe in him if they have never heard about him? And how can they hear about him unless someone tells them?"<span style="display:block;font-style:normal;font-family:Montserrat,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#a55229;margin-top:16px">Romans 10:14</span></blockquote>
-        <a href="/about/" style="display:inline-block;margin-top:32px;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;border-bottom:1px solid rgba(165,82,41,0.4);padding-bottom:4px">Read our story</a>
-      </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:clamp(48px,7vw,80px)">
-      <div style="padding:clamp(28px,3vw,38px) clamp(24px,3vw,32px);background:#ffffff;border-top:3px solid #487a81" class="h4">
-        <span style="font-family:Merriweather,Georgia,serif;font-size:13px;color:#cca54f">01</span>
-        <h3 style="font-family:Merriweather,Georgia,serif;font-size:22px;margin-top:16px;line-height:1.35">Agricultural Development</h3>
-        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.78)">Pointing farmers to the Master Farmer and His ways through applying biblical principles to agriculture and improve food security, equipping them to be good stewards of the resources God has given them and helping them find an abundant life in Christ</p>
-      </div>
-      <div style="padding:clamp(28px,3vw,38px) clamp(24px,3vw,32px);background:#ffffff;border-top:3px solid #a55229" class="h4">
-        <span style="font-family:Merriweather,Georgia,serif;font-size:13px;color:#cca54f">02</span>
-        <h3 style="font-family:Merriweather,Georgia,serif;font-size:22px;margin-top:16px;line-height:1.35">Medical Care</h3>
-        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.78)">Caring for patients at a rural clinic where many arrive on foot or by donkey cart, treating what local resources cannot reach — and offering the hope of Christ to every patient and family.</p>
-      </div>
-      <div style="padding:clamp(28px,3vw,38px) clamp(24px,3vw,32px);background:#ffffff;border-top:3px solid #cca54f" class="h4">
-        <span style="font-family:Merriweather,Georgia,serif;font-size:13px;color:#cca54f">03</span>
-        <h3 style="font-family:Merriweather,Georgia,serif;font-size:22px;margin-top:16px;line-height:1.35">Gospel Transformation</h3>
-        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.78)">Walking alongside the people we serve, building trust and respect, so we gain the privilege of sharing Jesus with them and discipling them to become true followers of Christ.</p>
+        <p style="font-size:clamp(21px,2.3vw,27px);line-height:1.5;font-weight:600;margin:0">Our mission is to point people to Jesus Christ.</p>
+        <p style="font-size:16px;line-height:1.85;margin:26px 0 0;color:rgba(43,43,43,0.85)">Imagine living your entire life without ever hearing the Gospel explained in a way you could understand. For millions across West Africa, that is still reality.</p>
+        <p style="font-size:16px;line-height:1.85;margin:18px 0 0;color:rgba(43,43,43,0.85)">In Senegal, more than 95% of the population is Muslim. Many Muslims are kind, deeply spiritual people who believe in a higher power and recognize their need for forgiveness. Yet, although Jesus is respected as a prophet in Islam, most have never heard the biblical message of His death and resurrection or the salvation He offers through faith in Him.</p>
+        <blockquote style="margin:30px 0 0;padding-left:26px;border-left:3px solid #cca54f;font-size:17px;line-height:1.75;font-weight:300;color:rgba(43,43,43,0.92)">Romans 10:14 asks, "And how can they believe in him if they have never heard about him? And how can they hear about him unless someone tells them?"</blockquote>
+        <p style="font-size:16px;line-height:1.85;margin:26px 0 0;color:rgba(43,43,43,0.85)">That's why we're there. We long for people to know Jesus personally and experience the hope, forgiveness, and new life found in Him.</p>
+        <div style="margin-top:26px;padding-top:20px;border-top:1px solid rgba(43,43,43,0.15)">
+          <p style="font-size:15px;line-height:1.7;font-style:italic;font-weight:400;margin:0;color:rgba(43,43,43,0.85)">We're Tom and Suja Brane, serving in West Africa since 2013.</p>
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:12px">
+            <span style="font-size:14px;font-weight:600;letter-spacing:0.04em;color:#a55229">— Tom &amp; Suja</span>
+            <a href="/about/" style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#487a81;border-bottom:1px solid rgba(72,122,129,0.4);padding-bottom:2px">Meet our family →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(40px,6vw,80px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px">
-      <div style="position:relative;aspect-ratio:4/3"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/teaching.jpg" alt="Teaching a Farming God&#x27;s Way training session" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:4/3"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/gallery-2.jpg" alt="Suja Brane treating a patient at the rural clinic" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:4/3"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/training.jpg" alt="Farmers in a hands-on agricultural training" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:4/3"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/village.jpg" alt="A village in rural Senegal" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:4/3"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/care.jpg" alt="Caring for a patient at the clinic" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
-      <div style="position:relative;aspect-ratio:4/3"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/harvest.jpg" alt="Harvested crops from a Farming God&#x27;s Way field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+  <section style="max-width:1180px;margin:0 auto;padding:clamp(40px,5.5vw,64px) clamp(20px,4vw,32px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px">
+      <a href="/how-we-serve/#agriculture" style="display:flex;flex-direction:column;color:#2b2b2b;transition:transform 0.2s ease, box-shadow 0.2s ease;padding:clamp(28px,3vw,38px) clamp(24px,3vw,32px);background:#ffffff;border-top:4px solid #487a81" class="h1">
+        <span style="font-size:13px;font-weight:700;color:#cca54f">01</span>
+        <h3 style="font-size:21px;font-weight:600;margin-top:14px;line-height:1.35">Agricultural Development</h3>
+        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.82)">Pointing farmers to the Master Farmer, improving food security through biblical principles, and helping them find an abundant life in Christ.</p>
+        <span style="margin-top:auto;padding-top:20px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#487a81">Learn about our farming work →</span>
+      </a>
+      <a href="/how-we-serve/#medical" style="display:flex;flex-direction:column;color:#2b2b2b;transition:transform 0.2s ease, box-shadow 0.2s ease;padding:clamp(28px,3vw,38px) clamp(24px,3vw,32px);background:#ffffff;border-top:4px solid #a55229" class="h1">
+        <span style="font-size:13px;font-weight:700;color:#cca54f">02</span>
+        <h3 style="font-size:21px;font-weight:600;margin-top:14px;line-height:1.35">Medical Care</h3>
+        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.82)">Extending God's love and compassion through medical care to those suffering from chronic, debilitating illnesses—especially the marginalized and overlooked.</p>
+        <span style="margin-top:auto;padding-top:20px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a55229">Learn about our medical work →</span>
+      </a>
+      <a href="/how-we-serve/#heart" style="display:flex;flex-direction:column;color:#2b2b2b;transition:transform 0.2s ease, box-shadow 0.2s ease;padding:clamp(28px,3vw,38px) clamp(24px,3vw,32px);background:#ffffff;border-top:4px solid #cca54f" class="h1">
+        <span style="font-size:13px;font-weight:700;color:#cca54f">03</span>
+        <h3 style="font-size:21px;font-weight:600;margin-top:14px;line-height:1.35">Gospel Transformation</h3>
+        <p style="font-size:15px;line-height:1.8;margin:16px 0 0;color:rgba(43,43,43,0.82)">Creating opportunities for people to hear the Gospel, encounter Jesus, and experience His transforming power.</p>
+        <span style="margin-top:auto;padding-top:20px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a55229">Learn about God's heart for the poor →</span>
+      </a>
     </div>
   </section>
 
-  <section style="background:#2b2b2b;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+  <section style="background:#ecd9b9;border-top:1px solid rgba(43,43,43,0.08)">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(40px,5.5vw,64px) clamp(20px,4vw,32px)">
       <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:44px;height:1px;background:#cca54f"></span>
-        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#ecd9b9;font-weight:600">Partner with us</h2>
+        <span style="width:44px;height:1px;background:#a55229"></span>
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#a55229;font-weight:600">Our strategy</h2>
       </div>
-      <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(26px,3.4vw,38px);line-height:1.35;font-weight:300;max-width:760px;margin:28px 0 0">Three ways to stand with the work in West Africa.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:clamp(40px,5vw,56px)">
-        <a href="/get-involved/" style="border:1px solid rgba(241,234,216,0.18);padding:32px 30px;display:flex;flex-direction:column;color:#f1ead8;min-height:190px" class="h5">
-          <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">01 — Pray</span>
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:24px;margin-top:18px;font-weight:300">Pray with us</h3>
-          <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(241,234,216,0.78)">Specific requests go out with each epistle. We truly depend on them.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,4vw,56px);align-items:center;margin-top:28px">
+        <p style="font-size:clamp(19px,2.2vw,25px);line-height:1.6;font-weight:300;margin:0">Through agricultural development and medical care, we come alongside communities to meet real needs. As we build relationships of trust and respect, we have the privilege of sharing Jesus and the hope He offers.</p>
+        <div style="position:relative;aspect-ratio:4/3">
+          <div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/embrace.jpg" alt="A girl smiling over the shoulder of the worker carrying her at the farm" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:30px;margin-top:clamp(40px,5vw,60px)">
+        <div style="border-top:2px solid #487a81;padding-top:22px">
+          <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#487a81;font-weight:600">Step one</span>
+          <h3 style="font-size:17px;font-weight:600;margin-top:12px">Meet a real, felt need</h3>
+          <p style="font-size:15px;line-height:1.8;margin:12px 0 0;color:rgba(43,43,43,0.8)">Better harvests. Medical care that would otherwise be out of reach.</p>
+        </div>
+        <div style="border-top:2px solid #9a713a;padding-top:22px">
+          <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9a713a;font-weight:600">Step two</span>
+          <h3 style="font-size:17px;font-weight:600;margin-top:12px">Build trust and respect</h3>
+          <p style="font-size:15px;line-height:1.8;margin:12px 0 0;color:rgba(43,43,43,0.8)">We stay, we return, and we show up in the hard moments alongside the people we serve.</p>
+        </div>
+        <div style="border-top:2px solid #a55229;padding-top:22px">
+          <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#a55229;font-weight:600">Step three</span>
+          <h3 style="font-size:17px;font-weight:600;margin-top:12px">Share Jesus</h3>
+          <p style="font-size:15px;line-height:1.8;margin:12px 0 0;color:rgba(43,43,43,0.8)">So they have the same opportunity each of us has to accept Jesus as Lord and Savior.</p>
+        </div>
+        <div style="border-top:2px solid #cca54f;padding-top:22px">
+          <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9a713a;font-weight:600">Step four</span>
+          <h3 style="font-size:17px;font-weight:600;margin-top:12px">See lives transformed</h3>
+          <p style="font-size:15px;line-height:1.8;margin:12px 0 0;color:rgba(43,43,43,0.8)">Watching God transform lives physically and spiritually.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(40px,5.5vw,64px)">
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-tires.jpg" alt="A boy holding two bicycle tires in a village street" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-field-team.jpg" alt="Tom Brane and farmers kneeling together in a field" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-friends.jpg" alt="Suja Brane laughing with a Senegalese friend" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-garden-rows.jpg" alt="Mulched garden rows of carrots and onions at the Beersheba farm" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-home-visit.jpg" alt="Tom and Suja Brane visiting a patient resting on a mat at home" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-portrait.jpg" alt="A young woman standing in front of a thatched hut" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-sorghum.jpg" alt="A farmer standing in front of a towering stand of sorghum" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+      <div style="position:relative;aspect-ratio:1"><div style="display:block;position:relative;overflow:hidden;width:100%;height:100%;aspect-ratio:3/2"><img src="/assets/sq-cart.jpg" alt="A girl sitting on a donkey cart in a village" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div></div>
+    </div>
+  </section>
+
+  <section style="background:#ecd9b9;border-top:1px solid rgba(43,43,43,0.08)">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(40px,5.5vw,64px) clamp(20px,4vw,32px)">
+      <div style="text-align:center">
+        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#a55229;font-weight:600">Join us</h2>
+        <p style="font-size:clamp(22px,2.8vw,32px);line-height:1.35;font-weight:300;margin:14px 0 0">Be part of what God is doing in West Africa.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:clamp(28px,4vw,40px)">
+        <a href="/get-involved/#pray" style="display:flex;flex-direction:column;background:#ffffff;color:#2b2b2b;padding:clamp(24px,3vw,32px);border-top:3px solid #487a81" class="h2">
+          <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:#487a81">Pray</span>
+          <h3 style="font-size:21px;font-weight:600;margin-top:12px">Pray with us</h3>
+          <p style="font-size:15px;line-height:1.7;margin:10px 0 0;color:rgba(43,43,43,0.8)">We truly depend on your prayers for the people we serve and the work on the ground.</p>
+          <span style="margin-top:auto;padding-top:18px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#a55229">Pray with us →</span>
         </a>
-        <a href="/give/" style="border:1px solid #cca54f;background:rgba(204,165,79,0.08);padding:32px 30px;display:flex;flex-direction:column;color:#f1ead8;min-height:190px" class="h6">
-          <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#cca54f">02 — Give</span>
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:24px;margin-top:18px;font-weight:300">Give to the work</h3>
-          <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(241,234,216,0.85)">Invest in people and communities through agriculture, medicine, and relief.</p>
+        <a href="/give/" style="display:flex;flex-direction:column;background:#a55229;color:#f1ead8;padding:clamp(24px,3vw,32px);border-top:3px solid #a55229" class="h2">
+          <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:#ecd9b9">Give</span>
+          <h3 style="font-size:21px;font-weight:600;margin-top:12px">Give to the work</h3>
+          <p style="font-size:15px;line-height:1.7;margin:10px 0 0;color:rgba(241,234,216,0.9)">Your generosity helps meet real felt needs while opening doors for the Gospel.</p>
+          <span style="margin-top:auto;padding-top:18px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#f1ead8">Give now →</span>
         </a>
-        <a href="/get-involved/" style="border:1px solid rgba(241,234,216,0.18);padding:32px 30px;display:flex;flex-direction:column;color:#f1ead8;min-height:190px" class="h5">
-          <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">03 — Stay connected</span>
-          <h3 style="font-family:Merriweather,Georgia,serif;font-size:24px;margin-top:18px;font-weight:300">Brane Family Snippets</h3>
-          <p style="font-size:15px;line-height:1.8;margin:14px 0 0;color:rgba(241,234,216,0.78)">Our bimonthly epistle: field updates, stories, and prayer points.</p>
+        <a href="/get-involved/#snippets" style="display:flex;flex-direction:column;background:#ffffff;color:#2b2b2b;padding:clamp(24px,3vw,32px);border-top:3px solid #487a81" class="h2">
+          <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:#487a81">Stay connected</span>
+          <h3 style="font-size:21px;font-weight:600;margin-top:12px">Brane Family Snippets</h3>
+          <p style="font-size:15px;line-height:1.7;margin:10px 0 0;color:rgba(43,43,43,0.8)">Stories, prayer requests, and ministry updates from the field.</p>
+          <span style="margin-top:auto;padding-top:18px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#a55229">Sign up →</span>
         </a>
       </div>
     </div>
   </section>
 
-  
-  <section id="donate" style="background:#ecd9b9;border-top:1px solid rgba(43,43,43,0.1)">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
-      <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:44px;height:1px;background:#cca54f"></span>
-        <h2 style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#487a81;font-weight:600">Give</h2>
-      </div>
-      <p style="font-family:Merriweather,Georgia,serif;font-size:clamp(22px,2.4vw,28px);line-height:1.5;font-weight:300;max-width:720px;margin:22px 0 0">Give to the work in West Africa.</p>
-      <p style="font-size:16px;line-height:1.85;margin:20px 0 0;max-width:720px;color:rgba(43,43,43,0.82)">Gifts of any size go directly into the work on the ground. See <a href="/give/" style="border-bottom:1px solid rgba(165,82,41,0.4)">where your gift goes</a>.</p>
-      <div style="margin-top:clamp(32px,4vw,48px)">
-        <a href="https://impact-west-africa-inc-544195.churchcenter.com/giving?open-in-church-center-modal=true" style="display:inline-block;padding:18px 44px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase" class="give-btn">Give online</a>
-        <p style="font-size:13px;line-height:1.7;margin:20px 0 0;color:rgba(43,43,43,0.7)">Secure giving through Planning Center. Give once, or set up a recurring gift.</p>
-      </div>
-    </div>
-  </section>
-
-<footer style="background:#487a81;color:#f1ead8">
-    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,64px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start">
-      <div style="max-width:380px">
-        <img src="/assets/logo-light.png" alt="IMPACT — Impacting West Africa for Christ" style="height:56px;width:auto">
-        <p style="font-size:14px;line-height:1.8;margin:22px 0 0;color:rgba(241,234,216,0.8)">Spiritually IMPACTing the unreached in West Africa through agricultural development, medical care, and gospel transformation.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+  <footer style="background:#2b2b2b;color:#f1ead8">
+    <div style="max-width:960px;margin:0 auto;padding:clamp(32px,4vw,40px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-start">
+      <img src="/assets/badge-footer.png" alt="IMPACT West Africa — Medical Care · Agricultural Ministry · Gospel Transformation" style="width:176px;height:auto;flex:none;align-self:center">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Explore</span>
         <a href="/" style="font-size:14px;color:#f1ead8">Home</a>
         <a href="/about/" style="font-size:14px;color:#f1ead8">About</a>
+        <a href="/how-we-serve/" style="font-size:14px;color:#f1ead8">How We Serve</a>
         <a href="/get-involved/" style="font-size:14px;color:#f1ead8">Get Involved</a>
         <a href="/give/" style="font-size:14px;color:#cca54f">Give</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#bcdce0">Reach us</span>
         <a href="mailto:info@impactwestafrica.org" style="font-size:14px;color:#f1ead8">info@impactwestafrica.org</a>
         <a href="https://impact-west-africa.epistle.org/subscribe" style="font-size:14px;color:#f1ead8">Brane Family Snippets</a>
+        <address style="font-style:normal;font-size:14px;line-height:1.6;color:rgba(241,234,216,0.82);margin-top:6px">IMPACT West Africa<br>P.O. Box 13<br>Ross, OH 45061</address>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(241,234,216,0.2)">
-      <div style="max-width:1180px;margin:0 auto;padding:22px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12px;color:rgba(241,234,216,0.7)">
+    <div style="border-top:1px solid rgba(241,234,216,0.18)">
+      <div style="max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:11px;color:rgba(241,234,216,0.7)">
         <span>© 2026 IMPACT West Africa. A registered 501(c)(3) organization.</span>
         <span>All gifts are tax-deductible.</span>
       </div>
