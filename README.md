@@ -81,6 +81,32 @@ and it raises on an unknown filename, so a reference can't quietly ship without
 a version. `404.html` is hand-written rather than compiled, so its references
 get the same treatment by substitution on the way out.
 
+`/favicon.ico` is the one exception — see below.
+
+## Icons
+
+The pages declare PNG icons, which is what browsers use:
+
+```
+/assets/favicon-32.png        32x32, the tab icon
+/assets/icon-512.png          512x512, high-DPI and install prompts
+/assets/apple-touch-icon.png  180x180, iOS home screen
+```
+
+Those are versioned like any other asset. There is also a plain
+`/favicon.ico` at the site root, built by `write_favicon_ico()` as a three-entry
+(16/32/48) ICO with a PNG inside each entry. Nothing in the HTML points at it;
+it is there for everything that never parses the page and just asks the origin
+for `/favicon.ico` — link unfurlers, feed readers, bookmark importers. That
+request is made by convention rather than from a tag, so it cannot carry a
+`?v=` buster. It changes about never, which is why that is acceptable.
+
+All four come from `FAVICON_SRC` in the compiler, currently
+`icon-impact-512.png`. The export also ships `icon-badge-*` (the same mark with
+an orange star over Senegal) and `icon-badgefull-*` (the full circular badge —
+its ring of text turns to mush at 16px, so it is a poor favicon). Switching is
+a one-line change to `FAVICON_SRC`.
+
 ## Giving
 
 Giving runs on Planning Center. The "Give Now" button in the Online Giving card

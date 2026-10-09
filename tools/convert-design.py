@@ -29,6 +29,7 @@ import json
 import os
 import re
 import shutil
+import struct
 import subprocess
 import sys
 from html.parser import HTMLParser
@@ -300,6 +301,10 @@ IMAGES = {
 }
 
 SOCIAL_IMAGE = "hero-training.jpg"
+# Source for the browser icons. The export also ships icon-badge-* (the same
+# mark with an orange star on Senegal) and icon-badgefull-* (the full circular
+# badge, whose ring of text is a smudge at 16px).
+FAVICON_SRC = "icon-impact-512.png"
 
 # Cache busting. GitHub Pages serves everything with `Cache-Control:
 # max-age=600` and gives no way to change that, so a browser can hold a stale
@@ -433,13 +438,23 @@ NAV_CSS = """
 .dd-in a:hover{background:#f1ead8;color:#a55229}
 .mnav>summary{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(43,43,43,0.2);border-radius:2px;cursor:pointer;font-size:20px;color:#2b2b2b;list-style:none}
 .mnav>summary::-webkit-details-marker{display:none}
-.mpanel{position:absolute;top:100%;left:0;right:0;background:#f1ead8;border-top:1px solid rgba(43,43,43,0.1);box-shadow:0 18px 30px rgba(0,0,0,0.12);max-height:calc(100vh - 80px);overflow-y:auto;padding:4px clamp(20px,4vw,32px) 28px;display:flex;flex-direction:column}
+.mpanel{position:absolute;top:100%;left:0;right:0;background:#f1ead8;border-top:1px solid rgba(43,43,43,0.1);box-shadow:0 18px 30px rgba(0,0,0,0.12);max-height:calc(100vh - 80px);overflow-y:auto;padding:4px clamp(20px,4vw,32px) 28px;display:none;flex-direction:column}
+.mnav[open]>.mpanel{display:flex}
 .m-row,.m-sec{border-bottom:1px solid rgba(43,43,43,0.1)}
 .m-top{display:block;padding:16px 0;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2b2b2b}
 .m-sec>summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none}
 .m-sec>summary::-webkit-details-marker{display:none}
 .m-sign{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;line-height:1;color:#a55229}
-.m-sub{display:flex;flex-direction:column;padding-bottom:10px}
+.m-sub{display:none;flex-direction:column;padding-bottom:10px}
+.m-sec[open]>.m-sub{display:flex}
+/* A closed <details> hides its own content, but only if the author has not
+   set display on it - and newer engines wrap that content in
+   ::details-content with `content-visibility:hidden; contain-intrinsic-size:
+   auto`, which keeps the height remembered from the last time it was open. An
+   About section that had been expanded once therefore left a section-sized
+   blank gap behind after it was collapsed. So: hide the panels by hand with
+   the two rules above, and stop the wrapper from reserving anything. */
+.mnav::details-content,.m-sec::details-content{content-visibility:visible;contain-intrinsic-size:none}
 .m-sub a{display:block;padding:12px 0 12px 18px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#487a81}
 .m-give{margin-top:22px;display:block;text-align:center;padding:16px;background:#a55229;color:#f1ead8;border-radius:2px;font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase}
 .m-give:hover{background:#2b2b2b;color:#f1ead8}
@@ -580,6 +595,11 @@ AG_CSS = """
 ACC_CSS = """
 .acc>summary{list-style:none;cursor:pointer}
 .acc>summary::-webkit-details-marker{display:none}
+/* Same collapsed-but-still-tall problem as the mobile menu: hide the body
+   ourselves rather than leaving it to the UA. See the .m-sub rules. */
+.acc>summary~*{display:none}
+.acc[open]>summary~*{display:block}
+.acc::details-content{content-visibility:visible;contain-intrinsic-size:none}
 """
 
 
@@ -928,6 +948,40 @@ def build_assets():
     return mapping
 
 
+def write_favicon_ico():
+    """Write a classic multi-size /favicon.ico at the site root.
+
+    The pages declare PNG icons, which is what browsers actually use. This file
+    is for everything that never parses the HTML and just asks the origin for
+    /favicon.ico: link unfurlers, feed readers, bookmark importers. It lives at
+    the root under its conventional name, so unlike /assets/* it cannot carry a
+    ?v= cache buster - which is fine, as it changes about never.
+
+    ICO is a directory of images; since Vista each entry may be a whole PNG, so
+    the three sizes are just sips output concatenated behind a header.
+    """
+    src = os.path.join(SRC, "assets", FAVICON_SRC)
+    tmp = os.path.join(OUT, "assets", "_ico")
+    images = []
+    for size in (16, 32, 48):
+        out = "%s-%d.png" % (tmp, size)
+        sips(src, out, size, "png")
+        with open(out, "rb") as fh:
+            images.append((size, fh.read()))
+        os.remove(out)
+
+    header = struct.pack("<HHH", 0, 1, len(images))      # reserved, type, count
+    offset = len(header) + 16 * len(images)
+    entries, payload = [], []
+    for size, data in images:
+        entries.append(struct.pack("<BBBBHHII", size, size, 0, 0, 1, 32,
+                                   len(data), offset))
+        payload.append(data)
+        offset += len(data)
+    with open(os.path.join(OUT, "favicon.ico"), "wb") as fh:
+        fh.write(header + b"".join(entries) + b"".join(payload))
+
+
 # ---------------------------------------------------------------------------
 # page assembly
 # ---------------------------------------------------------------------------
@@ -1084,6 +1138,7 @@ def main():
                      lambda m: asset_url(m.group(1)), page404)
     with open(os.path.join(OUT, "404.html"), "w", encoding="utf-8") as fh:
         fh.write(page404)
+    write_favicon_ico()
     open(os.path.join(OUT, ".nojekyll"), "w").close()
     with open(os.path.join(OUT, "CNAME"), "w") as fh:
         fh.write("impactwestafrica.org\n")
