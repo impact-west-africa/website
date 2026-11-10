@@ -56,21 +56,21 @@ PAGES = [
          desc="Spiritually IMPACTing the unreached in West Africa through "
               "agricultural development, medical care, and gospel transformation."),
     dict(src="About.dc.html", out="about/index.html", url="/about/", nav="about",
-         title="About — IMPACT West Africa",
+         title="About | IMPACT West Africa",
          desc="Who we are, how we work, and the board that guides IMPACT West "
-              "Africa — the ministry of Tom and Suja Brane in Senegal."),
+              "Africa, the ministry of Tom and Suja Brane in Senegal."),
     dict(src="How We Serve.dc.html", out="how-we-serve/index.html",
          url="/how-we-serve/", nav="serve",
-         title="How We Serve — IMPACT West Africa",
+         title="How We Serve | IMPACT West Africa",
          desc="Farming God's Way training, rural medical care, and humanitarian "
-              "relief in Senegal — meeting real needs and sharing Jesus."),
+              "relief in Senegal, meeting real needs and sharing Jesus."),
     dict(src="Get Involved.dc.html", out="get-involved/index.html",
          url="/get-involved/", nav="involved",
-         title="Get Involved — IMPACT West Africa",
+         title="Get Involved | IMPACT West Africa",
          desc="Pray with us, subscribe to Brane Family Snippets, or get in touch "
               "about partnering with the work in West Africa."),
     dict(src="Give.dc.html", out="give/index.html", url="/give/", nav="give",
-         title="Give — IMPACT West Africa",
+         title="Give | IMPACT West Africa",
          desc="Give online through Planning Center or by mail. Your generosity "
               "helps meet real felt needs while opening doors for the Gospel."),
 ]
@@ -342,6 +342,7 @@ NAV = [
     ("home", "Home", "/", []),
     ("about", "About", "/about/", [
         ("Our Story", "#story"),
+        ("Statement of Faith", "statement-of-faith/"),
         ("Board of Directors", "#board"),
         ("Our Partners", "#partners")]),
     ("serve", "How We Serve", "/how-we-serve/", [
@@ -400,7 +401,7 @@ def header(active):
 HEADER = """  <header class="site-head">
     <div class="head-in">
       <a href="/" class="brand">
-        <img src="{logo}" width="600" height="149" alt="IMPACT — Impacting West Africa for Christ">
+        <img src="{logo}" width="600" height="149" alt="IMPACT: Impacting West Africa for Christ">
       </a>
       <nav class="nav-d" aria-label="Main">
         {desktop}
@@ -1110,6 +1111,44 @@ def compile_page(page, assets):
     return doc
 
 
+# Pages written by hand rather than compiled from the design export. Each
+# source in tools/ is the page body only; the head, header and footer script
+# are added here so they match the compiled pages.
+HAND_PAGES = [
+    dict(src="statement-of-faith.html", out="about/statement-of-faith/index.html",
+         url="/about/statement-of-faith/", nav="about",
+         title="Statement of Faith | IMPACT West Africa",
+         desc="The essential beliefs that unite the IMPACT West Africa board, "
+              "missionaries and ministry partners."),
+]
+
+
+def compile_hand_page(page):
+    body = open(os.path.join(REPO, "tools", page["src"]),
+                encoding="utf-8").read()
+    # Version the page's own asset references before the header goes in;
+    # header() already versions the logo.
+    body = re.sub(r"/assets/([A-Za-z0-9._-]+)",
+                  lambda m: asset_url(m.group(1)), body)
+    body = body.replace("@@HEADER@@", header(page["nav"]).strip())
+    body = body.replace("@@YEAR@@", str(YEAR))
+    css = BASE_CSS + "\n" + NAV_CSS + "\n" + HAND_CSS
+    doc = HEAD.format(title=html.escape(page["title"]),
+                      desc=html.escape(page["desc"]),
+                      site=SITE_URL, url=page["url"],
+                      image=asset_url(SOCIAL_IMAGE),
+                      icon32=asset_url("favicon-32.png"),
+                      icon512=asset_url("icon-512.png"),
+                      touch=asset_url("apple-touch-icon.png"),
+                      css=css.strip(), extra_head="")
+    return doc + body + script_tag("nav.js") + FOOT
+
+
+# The button hovers the compiled pages get from their style-hover attributes.
+HAND_CSS = """.h1:hover{background:#f1ead8!important}
+.h2:hover{border-color:#cca54f!important;color:#cca54f!important}"""
+
+
 def main():
     global STATE
     sidecar = os.path.join(SRC, ".image-slots.state.json")
@@ -1124,6 +1163,14 @@ def main():
 
     for page in PAGES:
         doc = compile_page(page, assets)
+        dest = os.path.join(OUT, page["out"])
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        with open(dest, "w", encoding="utf-8") as fh:
+            fh.write(doc)
+        print("%-26s %6.1f KB" % (page["out"], len(doc) / 1024))
+
+    for page in HAND_PAGES:
+        doc = compile_hand_page(page)
         dest = os.path.join(OUT, page["out"])
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, "w", encoding="utf-8") as fh:
